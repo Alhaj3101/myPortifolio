@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-  <title>Grace, our beautiful love story ❤️</title>
-  <!-- Tailwind + Google Material Icons (CDN - works on GitHub Pages) -->
+  <title>Grace · will you be mine? 💝</title>
+  <!-- Tailwind + Material Icons (works on GitHub Pages) -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Material Icons - reliable on GitHub Pages -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Romantic fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
@@ -36,8 +35,8 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Floating icons background */
-    .icon-bg {
+    /* Floating hearts background */
+    .heart-bg {
       position: fixed;
       top: 0;
       left: 0;
@@ -49,203 +48,345 @@
 
     .floating-icon {
       position: absolute;
-      color: rgba(255, 255, 255, 0.6);
-      animation: floatIcon linear infinite;
-      text-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
+      color: rgba(255, 255, 255, 0.5);
+      animation: floatHeart linear infinite;
       font-size: 24px;
       font-family: 'Material Icons';
     }
 
-    @keyframes floatIcon {
+    @keyframes floatHeart {
       0% { transform: translateY(100vh) scale(0.3) rotate(0deg); opacity: 0; }
-      20% { opacity: 0.8; }
-      80% { opacity: 0.8; }
+      20% { opacity: 0.7; }
+      80% { opacity: 0.7; }
       100% { transform: translateY(-20vh) scale(1.2) rotate(360deg); opacity: 0; }
     }
 
-    /* Main envelope styling */
-    .love-letter-container {
-      perspective: 2000px;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .envelope {
-      position: relative;
-      width: 100%;
-      max-width: 600px;
-      cursor: pointer;
-      transition: transform 0.5s;
-      transform-style: preserve-3d;
-      animation: floatLetter 4s ease-in-out infinite;
-    }
-
-    @keyframes floatLetter {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-15px) rotate(0.5deg); }
-    }
-
-    .envelope-front {
-      background: linear-gradient(145deg, #ff69b4, #ff1493, #c71585);
-      border-radius: 40px 40px 20px 20px;
+    /* Main card */
+    .love-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 48px;
       padding: 40px 30px;
-      box-shadow: 0 30px 50px rgba(139, 0, 0, 0.5), 0 0 0 4px rgba(255, 255, 255, 0.6) inset;
+      box-shadow: 0 30px 60px rgba(199, 21, 133, 0.4);
+      border: 3px solid white;
+      max-width: 500px;
+      margin: 20px auto;
       position: relative;
-      overflow: hidden;
-      border: 2px solid white;
+      z-index: 10;
     }
 
-    .envelope-flap {
-      position: absolute;
-      top: -30px;
-      left: 0;
-      right: 0;
-      height: 60px;
-      background: linear-gradient(145deg, #ff1493, #ff69b4);
-      border-radius: 30px 30px 0 0;
-      border: 2px solid white;
-      border-bottom: none;
-      transform-origin: bottom;
-      transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    }
-
-    .envelope.opened .envelope-flap {
-      transform: rotateX(180deg);
-    }
-
-    .open-text {
+    /* Click if you love me button */
+    .love-button {
+      background: linear-gradient(45deg, #ff1493, #ff69b4, #ff1493);
+      background-size: 200% 200%;
+      animation: gradientMove 3s ease infinite;
+      border: none;
+      padding: 20px 40px;
+      font-size: 2rem;
       font-family: 'Great Vibes', cursive;
-      font-size: 4.5rem;
       color: white;
-      text-shadow: 0 5px 15px rgba(0,0,0,0.3), 0 0 30px gold, 0 0 50px #ffd700;
-      animation: glowPulse 2s infinite;
+      border-radius: 60px;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(255, 20, 147, 0.5);
+      transition: all 0.3s;
+      border: 3px solid white;
+      width: 100%;
       margin: 20px 0;
     }
 
-    @keyframes glowPulse {
-      0%, 100% { text-shadow: 0 5px 15px rgba(0,0,0,0.3), 0 0 30px gold; }
-      50% { text-shadow: 0 5px 30px rgba(0,0,0,0.5), 0 0 60px #ffd700, 0 0 90px #ff69b4; }
+    .love-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 40px rgba(255, 20, 147, 0.8);
     }
 
-    .sub-text {
-      font-family: 'Dancing Script', cursive;
-      font-size: 2rem;
-      color: #fff0f5;
-      margin-bottom: 30px;
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
-    /* Icon decorations */
-    .icon-decor {
-      position: absolute;
-      color: white;
-      font-size: 3rem;
-      animation: iconWobble 3s infinite;
-      font-family: 'Material Icons';
+    /* Gift boxes grid */
+    .gift-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin: 30px 0;
     }
 
-    @keyframes iconWobble {
-      0%, 100% { transform: rotate(0deg) scale(1); }
-      33% { transform: rotate(5deg) scale(1.1); }
-      66% { transform: rotate(-5deg) scale(1.1); }
-    }
-
-    /* Letter content */
-    .letter-content {
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(10px);
-      border-radius: 40px;
-      padding: 40px 30px;
-      margin-top: 40px;
-      box-shadow: 0 30px 60px rgba(199, 21, 133, 0.3);
-      transform-origin: top;
-      animation: contentAppear 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      border: 3px solid #ffb6c1;
+    .gift-box {
+      background: linear-gradient(145deg, #fff0f5, #ffe4e1);
+      border-radius: 30px;
+      padding: 25px 15px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      border: 3px solid white;
+      box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
       position: relative;
+      overflow: hidden;
     }
 
-    @keyframes contentAppear {
-      0% { transform: scaleY(0) translateY(-50px); opacity: 0; }
-      100% { transform: scaleY(1) translateY(0); opacity: 1; }
+    .gift-box::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+      animation: shine 3s infinite;
     }
 
-    /* I LOVE YOU explosion */
-    .love-explosion {
+    @keyframes shine {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .gift-box:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 20px 30px rgba(255, 20, 147, 0.5);
+    }
+
+    .gift-icon {
+      font-size: 4rem;
+      color: #ff1493;
+      margin-bottom: 10px;
+    }
+
+    .gift-text {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.5rem;
+      color: #c71585;
+      font-weight: bold;
+    }
+
+    /* Love game area */
+    .game-container {
+      background: rgba(255, 240, 245, 0.8);
+      border-radius: 40px;
+      padding: 25px;
+      margin: 30px 0;
+      border: 3px dashed #ff69b4;
+    }
+
+    .game-question {
+      font-size: 1.3rem;
+      color: #8b0000;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .game-option {
+      background: white;
+      padding: 15px;
+      border-radius: 50px;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 2px solid #ffb6c1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .game-option:hover {
+      background: #fff0f5;
+      transform: scale(1.02);
+      border-color: #ff1493;
+    }
+
+    .game-option.correct {
+      background: #d4edda;
+      border-color: #28a745;
+      animation: correctPulse 1s;
+    }
+
+    .game-option.wrong {
+      background: #f8d7da;
+      border-color: #dc3545;
+      animation: wrongShake 0.5s;
+    }
+
+    @keyframes correctPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes wrongShake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-10px); }
+      75% { transform: translateX(10px); }
+    }
+
+    /* Message popup */
+    .message-popup {
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      background: white;
+      padding: 30px;
+      border-radius: 50px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.3);
       z-index: 1000;
-      pointer-events: none;
+      max-width: 350px;
+      width: 90%;
+      text-align: center;
+      border: 5px solid #ffb6c1;
     }
 
-    .love-particle {
-      position: absolute;
-      font-family: 'Material Icons';
-      font-size: 3rem;
-      color: white;
-      text-shadow: 0 0 30px #ff1493, 0 0 60px gold;
-      animation: explode 2s forwards;
-      white-space: nowrap;
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 999;
     }
 
-    @keyframes explode {
-      0% { transform: scale(0) rotate(0deg); opacity: 1; }
-      100% { transform: scale(2) rotate(720deg) translate(var(--x), var(--y)); opacity: 0; }
+    .hidden {
+      display: none;
     }
 
-    /* Story card */
-    .story-card {
-      background: linear-gradient(135deg, #fff9f9, #fff0f5);
-      border-radius: 24px;
-      padding: 25px;
-      border-left: 8px solid #ff1493;
-      box-shadow: 0 15px 25px rgba(255, 20, 147, 0.15);
-      transition: all 0.3s;
-      margin-bottom: 20px;
+    /* Pulse animation */
+    .pulse {
+      animation: pulse 2s infinite;
     }
 
-    .story-card:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 25px 35px rgba(255, 20, 147, 0.25);
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
     }
 
-    /* Material Icons styling */
-    .material-icons {
-      font-size: 24px;
-      vertical-align: middle;
+    /* Confetti */
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: #ff69b4;
+      position: fixed;
+      top: -10px;
+      animation: confettiFall 3s linear forwards;
+      z-index: 2000;
     }
 
-    .icon-heart { color: #ff1493; }
-    .icon-rose { color: #c71585; }
-    .icon-star { color: gold; }
-
-    /* Romantic divider */
-    .divider {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-      margin: 30px 0;
+    @keyframes confettiFall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
     }
-    .divider-line {
-      height: 2px;
-      flex: 1;
-      background: linear-gradient(90deg, transparent, #ff69b4, transparent);
-    }
+  </style>
+</head>
+<body>
 
-    /* Floating animations */
-    .float-1 { animation: float 3s ease-in-out infinite; }
-    .float-2 { animation: float 4s ease-in-out infinite 0.5s; }
-    .float-3 { animation: float 5s ease-in-out infinite 1s; }
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-10px) rotate(2deg); }
-    }
+  <!-- Floating hearts background -->
+  <div class="heart-bg" id="heartCanvas"></div>
 
-    /* Heart beat */
+  <!-- Main content -->
+  <div class="min-h-screen flex items-center justify-center p-4">
+    <div class="love-card">
+      
+      <!-- Header with name -->
+      <div class="text-center mb-6">
+        <span class="material-icons text-5xl text-pink-600 heart-beat">favorite</span>
+        <h1 class="font-['Great_Vibes'] text-5xl text-red-600 mt-2">My Dearest Grace</h1>
+        <p class="text-gray-600 mt-2">I've made something special just for you...</p>
+      </div>
+
+      <!-- Click if you love me button -->
+      <button onclick="showLoveMessage()" class="love-button pulse" id="loveButton">
+        ❤️ Click if you love me ❤️
+      </button>
+
+      <!-- Gift boxes section -->
+      <h2 class="font-['Dancing_Script'] text-3xl text-pink-600 text-center mb-4">
+        Choose a gift, my love 🎁
+      </h2>
+      
+      <div class="gift-grid">
+        <div class="gift-box" onclick="openGift(1)">
+          <span class="material-icons gift-icon">card_giftcard</span>
+          <span class="gift-text">Be Mine Forever</span>
+          <span class="material-icons text-pink-300 mt-2">stars</span>
+        </div>
+        <div class="gift-box" onclick="openGift(2)">
+          <span class="material-icons gift-icon">redeem</span>
+          <span class="gift-text">Endless Kisses</span>
+          <span class="material-icons text-pink-300 mt-2">favorite</span>
+        </div>
+        <div class="gift-box" onclick="openGift(3)">
+          <span class="material-icons gift-icon">celebration</span>
+          <span class="gift-text">Forever Love</span>
+          <span class="material-icons text-pink-300 mt-2">diamond</span>
+        </div>
+        <div class="gift-box" onclick="openGift(4)">
+          <span class="material-icons gift-icon">spa</span>
+          <span class="gift-text">My Whole Heart</span>
+          <span class="material-icons text-pink-300 mt-2">heart_broken</span>
+        </div>
+      </div>
+
+      <!-- Funny love game -->
+      <h2 class="font-['Dancing_Script'] text-3xl text-pink-600 text-center mb-4">
+        Let's play a game! 🎮
+      </h2>
+
+      <div class="game-container" id="gameContainer">
+        <div class="game-question" id="gameQuestion">
+          🤔 What would Alhaj do for Grace?
+        </div>
+        
+        <div class="game-option" onclick="checkAnswer(this, true)">
+          <span class="material-icons text-pink-500">favorite</span>
+          Climb the highest mountain
+        </div>
+        <div class="game-option" onclick="checkAnswer(this, false)">
+          <span class="material-icons text-pink-500">favorite</span>
+          Eat all her chocolate
+        </div>
+        <div class="game-option" onclick="checkAnswer(this, false)">
+          <span class="material-icons text-pink-500">favorite</span>
+          Forget her birthday
+        </div>
+        <div class="game-option" onclick="checkAnswer(this, true)">
+          <span class="material-icons text-pink-500">favorite</span>
+          Cross oceans for her
+        </div>
+
+        <div class="text-center mt-4" id="gameMessage"></div>
+      </div>
+
+      <!-- Acceptance message (hidden initially) -->
+      <div id="acceptanceMessage" class="hidden text-center mt-6 p-6 bg-pink-50 rounded-3xl border-3 border-pink-300">
+        <span class="material-icons text-5xl text-pink-600">favorite</span>
+        <h3 class="font-['Great_Vibes'] text-3xl text-red-600 mt-2">You said YES!</h3>
+        <p class="text-gray-700 mt-3 leading-relaxed" id="acceptanceText"></p>
+        <div class="flex justify-center gap-2 mt-4">
+          <span class="material-icons text-pink-400">stars</span>
+          <span class="material-icons text-pink-400">favorite</span>
+          <span class="material-icons text-pink-400">stars</span>
+        </div>
+      </div>
+
+      <!-- Romantic footer -->
+      <div class="text-center mt-6 text-gray-500 text-sm">
+        <span class="material-icons align-middle text-pink-400">favorite</span>
+        Made with love for Grace
+        <span class="material-icons align-middle text-pink-400">favorite</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Message popup -->
+  <div id="messagePopup" class="message-popup hidden">
+    <span id="popupIcon" class="material-icons text-6xl text-pink-600">favorite</span>
+    <p id="popupText" class="text-xl text-pink-600 font-['Dancing_Script'] my-4"></p>
+    <button onclick="closePopup()" class="bg-pink-500 text-white px-6 py-2 rounded-full w-full">Close</button>
+  </div>
+  <div id="overlay" class="overlay hidden" onclick="closePopup()"></div>
+
+  <style>
     .heart-beat {
       animation: heartBeat 1.4s ease-in-out infinite;
     }
@@ -256,465 +397,117 @@
       42% { transform: scale(1.2); }
       70% { transform: scale(1); }
     }
-
-    /* Sparkle effect */
-    .sparkle {
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: gold;
-      animation: sparkle 2s infinite;
-    }
-
-    @keyframes sparkle {
-      0%, 100% { opacity: 0; transform: scale(0); }
-      50% { opacity: 1; transform: scale(1); }
-    }
-
-    /* Rose petal */
-    .petal {
-      position: absolute;
-      width: 25px;
-      height: 25px;
-      background: #ffb6c1;
-      border-radius: 80% 0 55% 0;
-      transform: rotate(-45deg);
-      opacity: 0.5;
-      animation: petalFall 6s linear infinite;
-    }
-
-    @keyframes petalFall {
-      0% { transform: translateY(-10vh) rotate(0deg); opacity: 0.5; }
-      100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
-    }
-
-    /* Message card */
-    .message-card {
-      background: white;
-      border-radius: 24px;
-      padding: 20px;
-      box-shadow: 0 10px 20px rgba(255, 20, 147, 0.1);
-      border: 1px solid #ffb6c1;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Floating icons background -->
-  <div class="icon-bg" id="iconCanvas"></div>
-
-  <!-- Rose petals -->
-  <div id="petals"></div>
-
-  <!-- Main Love Letter Container -->
-  <div class="love-letter-container relative z-10">
-    <div class="envelope" id="envelope" onclick="openLetter()">
-      
-      <!-- Envelope front -->
-      <div class="envelope-front text-center relative">
-        <div class="envelope-flap" id="envelopeFlap"></div>
-        
-        <!-- Icon decorations -->
-        <span class="material-icons icon-decor" style="top: 20px; left: 20px; font-size: 3rem;">favorite</span>
-        <span class="material-icons icon-decor" style="bottom: 20px; right: 20px; font-size: 3rem;">favorite</span>
-        <span class="material-icons icon-decor" style="top: 20px; right: 20px; font-size: 3rem;">favorite</span>
-        <span class="material-icons icon-decor" style="bottom: 20px; left: 20px; font-size: 3rem;">favorite</span>
-        
-        <!-- BIG OPEN ME TEXT -->
-        <div class="open-text heart-beat">
-          OPEN ME
-        </div>
-        
-        <div class="sub-text float-2">
-          my love, this is for you
-        </div>
-        
-        <div class="flex justify-center gap-6 mt-6">
-          <span class="material-icons text-5xl text-white float-1">mail</span>
-          <span class="material-icons text-5xl text-white float-2">favorite</span>
-          <span class="material-icons text-5xl text-white float-3">local_florist</span>
-        </div>
-        
-        <p class="text-white mt-6 text-sm opacity-90 flex items-center justify-center gap-2">
-          <span class="material-icons text-base">touch_app</span>
-          tap gently, my love
-          <span class="material-icons text-base">auto_awesome</span>
-        </p>
-      </div>
-      
-      <!-- Letter content (hidden initially) -->
-      <div id="letterContent" class="letter-content hidden">
-        
-        <div class="text-center">
-          
-          <!-- Header with icons -->
-          <div class="flex justify-center gap-4 mb-6">
-            <span class="material-icons text-5xl text-pink-600 heart-beat">favorite</span>
-            <span class="material-icons text-5xl text-pink-400">favorite</span>
-            <span class="material-icons text-5xl text-pink-600 heart-beat">favorite</span>
-          </div>
-          
-          <h1 class="font-['Great_Vibes'] text-6xl text-red-600 mb-2">
-            I Love You
-          </h1>
-          
-          <h2 class="font-['Dancing_Script'] text-4xl text-pink-500 mb-6">
-            My Dearest Grace
-          </h2>
-          
-          <!-- The Greatest Love Story in History - Adam & Eve -->
-          <div class="story-card">
-            <div class="flex items-center gap-3 mb-4">
-              <span class="material-icons text-4xl text-pink-600">spa</span>
-              <h3 class="font-['Dancing_Script'] text-3xl text-pink-600">The First Love: Adam & Eve</h3>
-            </div>
-            <p class="text-gray-700 leading-relaxed">
-              <span class="material-icons text-sm align-middle text-pink-500">wb_sunny</span> In the beginning, in a beautiful garden called Eden, the very first love story began. 
-              Adam was alone until God created Eve from his rib. When Adam first saw her, his heart knew instantly 
-              that she was the one. He said, "This is now bone of my bones and flesh of my flesh." 
-              They walked together in the garden, shared every moment, and loved each other completely. 🌿
-            </p>
-            <p class="text-gray-700 mt-3 leading-relaxed">
-              <span class="material-icons text-sm align-middle text-pink-500">favorite</span> Their love was pure, innocent, and beautiful. They were the first to experience 
-              what it means to have a soulmate, to have someone who completes you. Even through every challenge, 
-              their love endured - because true love always finds a way.
-            </p>
-          </div>
-
-          <!-- The Lesson for Us -->
-          <div class="story-card">
-            <div class="flex items-center gap-3 mb-4">
-              <span class="material-icons text-4xl text-pink-600">auto_stories</span>
-              <h3 class="font-['Dancing_Script'] text-3xl text-pink-600">Our Love Should Be Like That</h3>
-            </div>
-            <p class="text-gray-700 leading-relaxed">
-              <span class="material-icons text-sm align-middle text-pink-500">stars</span> My beautiful Grace, just like Adam and Eve, we have been given a precious gift - each other. 
-              Their story teaches us that true love is:
-            </p>
-            <div class="grid grid-cols-2 gap-2 mt-3">
-              <div class="flex items-center gap-1 bg-pink-50 p-2 rounded-lg">
-                <span class="material-icons text-pink-500">handshake</span>
-                <span class="text-sm">Pure & True</span>
-              </div>
-              <div class="flex items-center gap-1 bg-pink-50 p-2 rounded-lg">
-                <span class="material-icons text-pink-500">favorite</span>
-                <span class="text-sm">Selfless</span>
-              </div>
-              <div class="flex items-center gap-1 bg-pink-50 p-2 rounded-lg">
-                <span class="material-icons text-pink-500">diversity_3</span>
-                <span class="text-sm">Together</span>
-              </div>
-              <div class="flex items-center gap-1 bg-pink-50 p-2 rounded-lg">
-                <span class="material-icons text-pink-500">infinity</span>
-                <span class="text-sm">Forever</span>
-              </div>
-            </div>
-            <p class="text-gray-700 mt-4 italic">
-              "Just as Eve was made for Adam, I believe you were made for me. 
-              Just as Adam loved Eve with his whole heart, I love you with every part of my soul."
-            </p>
-          </div>
-
-          <!-- Our Promise -->
-          <div class="story-card">
-            <div class="flex items-center gap-3 mb-4">
-              <span class="material-icons text-4xl text-pink-600">celebration</span>
-              <h3 class="font-['Dancing_Script'] text-3xl text-pink-600">Let's Create Our Own Garden</h3>
-            </div>
-            <p class="text-gray-700 leading-relaxed">
-              <span class="material-icons text-sm align-middle text-pink-500">park</span> Grace, let's build a love as beautiful as the Garden of Eden. 
-              A love where we walk together through every season, where we support each other, 
-              where we grow together like the most beautiful flowers. A love that will be talked about 
-              for generations - our own perfect love story.
-            </p>
-            <div class="flex justify-center gap-4 mt-4">
-              <span class="material-icons text-3xl text-pink-400 float-1">favorite</span>
-              <span class="material-icons text-3xl text-pink-500 float-2">favorite</span>
-              <span class="material-icons text-3xl text-pink-600 float-3">favorite</span>
-            </div>
-          </div>
-          
-          <!-- Romantic divider -->
-          <div class="divider">
-            <span class="material-icons text-pink-400">stars</span>
-            <div class="divider-line"></div>
-            <span class="material-icons text-pink-400">favorite</span>
-            <div class="divider-line"></div>
-            <span class="material-icons text-pink-400">stars</span>
-          </div>
-          
-          <!-- Why You're My Eve -->
-          <h3 class="font-['Dancing_Script'] text-3xl text-pink-600 mb-4">Why You're My Perfect Match</h3>
-          
-          <div class="grid grid-cols-2 gap-3 mb-6">
-            <div class="message-card flex items-center gap-2">
-              <span class="material-icons text-pink-500">sentiment_satisfied</span>
-              <span class="text-sm">Your beautiful smile</span>
-            </div>
-            <div class="message-card flex items-center gap-2">
-              <span class="material-icons text-pink-500">favorite</span>
-              <span class="text-sm">Your kind heart</span>
-            </div>
-            <div class="message-card flex items-center gap-2">
-              <span class="material-icons text-pink-500">psychology</span>
-              <span class="text-sm">Your beautiful mind</span>
-            </div>
-            <div class="message-card flex items-center gap-2">
-              <span class="material-icons text-pink-500">diversity_3</span>
-              <span class="text-sm">Your caring soul</span>
-            </div>
-          </div>
-          
-          <!-- Love letter message -->
-          <div class="bg-pink-50 p-6 rounded-3xl border-2 border-pink-200 my-6">
-            <span class="material-icons text-4xl text-pink-500 block mb-2">mail</span>
-            <p class="italic text-gray-700 text-lg">
-              "My dearest Grace, just as Eve was created for Adam, I believe with all my heart 
-              that you were created for me. Let's write our own beautiful love story - one filled 
-              with laughter, tears of joy, and endless love. I want to spend the rest of my life 
-              making you as happy as Adam made Eve."
-            </p>
-          </div>
-          
-          <!-- Promise with icons -->
-          <div class="mt-6">
-            <p class="text-red-500 font-bold text-xl mb-3">I Promise To:</p>
-            <div class="flex flex-wrap justify-center gap-3">
-              <span class="bg-pink-100 px-4 py-2 rounded-full text-sm flex items-center gap-1">
-                <span class="material-icons text-pink-500 text-base">favorite</span> Love you forever
-              </span>
-              <span class="bg-pink-100 px-4 py-2 rounded-full text-sm flex items-center gap-1">
-                <span class="material-icons text-pink-500 text-base">lock</span> Be faithful
-              </span>
-              <span class="bg-pink-100 px-4 py-2 rounded-full text-sm flex items-center gap-1">
-                <span class="material-icons text-pink-500 text-base">hug</span> Always hug you
-              </span>
-              <span class="bg-pink-100 px-4 py-2 rounded-full text-sm flex items-center gap-1">
-                <span class="material-icons text-pink-500 text-base">celebration</span> Make you smile
-              </span>
-            </div>
-          </div>
-          
-          <!-- Love meter -->
-          <div class="mt-8">
-            <div class="flex items-center justify-center gap-2">
-              <span class="material-icons text-3xl text-pink-500">favorite</span>
-              <span class="text-pink-600 font-medium">My love for you is</span>
-              <span class="material-icons text-3xl text-pink-500">favorite</span>
-            </div>
-            <div class="love-meter mt-3">
-              <div class="love-fill" style="width: 100%;"></div>
-            </div>
-            <p class="text-2xl font-['Great_Vibes'] text-red-600 mt-2">Infinite ♾️</p>
-          </div>
-          
-          <!-- Signature -->
-          <div class="mt-10 pt-6 border-t-2 border-pink-200">
-            <div class="flex justify-center gap-2 mb-3">
-              <span class="material-icons text-pink-500">edit</span>
-              <span class="material-icons text-pink-400">favorite</span>
-            </div>
-            <p class="font-['Great_Vibes'] text-4xl text-red-600">Forever yours,</p>
-            <p class="font-['Dancing_Script'] text-5xl text-pink-500 mt-2">Alhaj ❤️</p>
-            <div class="flex justify-center gap-2 mt-4">
-              <span class="material-icons text-pink-400">calendar_month</span>
-              <span class="text-sm text-gray-500">Let's write our own love story</span>
-              <span class="material-icons text-pink-400">favorite</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Love message popup -->
-  <div id="lovePopup" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white/95 backdrop-blur-lg p-8 rounded-3xl shadow-2xl z-50 max-w-sm w-full text-center hidden border-2 border-pink-300">
-    <span id="popupIcon" class="material-icons text-7xl text-pink-500 block mb-4 heart-beat">favorite</span>
-    <p id="popupText" class="text-xl text-pink-600 font-['Dancing_Script'] mb-4"></p>
-    <button onclick="closePopup()" class="bg-pink-500 text-white px-6 py-2 rounded-full w-full pulse-glow flex items-center justify-center gap-2">
-      <span class="material-icons">close</span> Close
-    </button>
-  </div>
-  <div id="overlay" class="fixed inset-0 bg-black/30 backdrop-blur-sm z-40 hidden" onclick="closePopup()"></div>
-
-  <style>
-    .hidden { display: none; }
-    .love-meter { width: 100%; height: 25px; background: #ffe4e1; border-radius: 50px; overflow: hidden; border: 2px solid white; }
-    .love-fill { height: 100%; background: linear-gradient(90deg, #ff69b4, #ff1493, #ff69b4); background-size: 200% 100%; animation: shimmer 3s infinite; }
-    @keyframes shimmer { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-    .pulse-glow { animation: pulseGlow 2s infinite; }
-    @keyframes pulseGlow { 0% { box-shadow: 0 0 0 0 rgba(255, 105, 180, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(255, 105, 180, 0); } 100% { box-shadow: 0 0 0 0 rgba(255, 105, 180, 0); } }
+    .border-3 { border-width: 3px; }
   </style>
 
   <script>
-    // Floating icons generator (Material Icons - works on GitHub Pages)
-    function initIcons() {
-      const canvas = document.getElementById('iconCanvas');
-      const icons = ['favorite', 'favorite', 'favorite', 'favorite', 'favorite', 'favorite', 'favorite', 'favorite', 'favorite'];
-      
+    // Floating hearts
+    function initHearts() {
+      const canvas = document.getElementById('heartCanvas');
       for (let i = 0; i < 30; i++) {
-        const icon = document.createElement('span');
-        icon.className = 'material-icons floating-icon';
-        icon.textContent = icons[Math.floor(Math.random() * icons.length)];
-        icon.style.left = Math.random() * 100 + '%';
-        icon.style.animationDuration = (Math.random() * 10 + 8) + 's';
-        icon.style.animationDelay = Math.random() * 5 + 's';
-        icon.style.fontSize = (Math.random() * 25 + 15) + 'px';
-        icon.style.opacity = 0.4;
-        canvas.appendChild(icon);
+        const heart = document.createElement('span');
+        heart.className = 'material-icons floating-icon';
+        heart.textContent = 'favorite';
+        heart.style.left = Math.random() * 100 + '%';
+        heart.style.animationDuration = (Math.random() * 10 + 8) + 's';
+        heart.style.animationDelay = Math.random() * 5 + 's';
+        heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+        heart.style.opacity = 0.3;
+        canvas.appendChild(heart);
       }
-    }
-
-    // Create rose petals
-    function initPetals() {
-      const petalsContainer = document.getElementById('petals');
-      for (let i = 0; i < 20; i++) {
-        const petal = document.createElement('div');
-        petal.className = 'petal';
-        petal.style.left = Math.random() * 100 + '%';
-        petal.style.animationDuration = (Math.random() * 5 + 4) + 's';
-        petal.style.animationDelay = Math.random() * 3 + 's';
-        petal.style.background = `hsl(${Math.random() * 15 + 340}, 80%, 80%)`;
-        petalsContainer.appendChild(petal);
-      }
-    }
-
-    // I LOVE YOU explosion
-    function createLoveExplosion() {
-      const explosionContainer = document.createElement('div');
-      explosionContainer.className = 'love-explosion';
-      document.body.appendChild(explosionContainer);
-      
-      const icons = ['favorite', 'favorite', 'favorite', 'favorite', 'favorite'];
-      
-      for (let i = 0; i < 40; i++) {
-        setTimeout(() => {
-          const particle = document.createElement('span');
-          particle.className = 'material-icons love-particle';
-          particle.textContent = 'favorite';
-          particle.style.color = '#ff1493';
-          particle.style.setProperty('--x', (Math.random() * 500 - 250) + 'px');
-          particle.style.setProperty('--y', (Math.random() * 500 - 250) + 'px');
-          particle.style.left = '50%';
-          particle.style.top = '50%';
-          particle.style.fontSize = (Math.random() * 3 + 2) + 'rem';
-          explosionContainer.appendChild(particle);
-          setTimeout(() => particle.remove(), 2000);
-        }, i * 30);
-      }
-      setTimeout(() => explosionContainer.remove(), 3000);
     }
 
     // Confetti burst
-    function createConfettiBurst() {
-      for (let i = 0; i < 60; i++) {
+    function createConfetti() {
+      for (let i = 0; i < 50; i++) {
         setTimeout(() => {
           const confetti = document.createElement('div');
-          confetti.style.position = 'fixed';
-          confetti.style.width = (Math.random() * 15 + 8) + 'px';
-          confetti.style.height = (Math.random() * 15 + 8) + 'px';
-          confetti.style.background = `hsl(${Math.random() * 30 + 330}, 80%, 70%)`;
-          confetti.style.borderRadius = '50%';
+          confetti.className = 'confetti';
           confetti.style.left = Math.random() * 100 + '%';
-          confetti.style.top = '-10px';
-          confetti.style.pointerEvents = 'none';
-          confetti.style.zIndex = '1000';
-          confetti.style.animation = `confettiFall ${Math.random() * 2 + 2}s linear forwards`;
+          confetti.style.background = `hsl(${Math.random() * 30 + 330}, 80%, 70%)`;
+          confetti.style.width = (Math.random() * 15 + 5) + 'px';
+          confetti.style.height = (Math.random() * 15 + 5) + 'px';
+          confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
           document.body.appendChild(confetti);
           setTimeout(() => confetti.remove(), 3000);
-        }, i * 15);
+        }, i * 20);
       }
     }
 
-    // Add confetti animation
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes confettiFall {
-        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-        100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-      }
-    `;
-    document.head.appendChild(style);
-
-    // Open letter function
-    function openLetter() {
-      const envelope = document.getElementById('envelope');
-      const letterContent = document.getElementById('letterContent');
-      
-      if (!envelope.classList.contains('opened')) {
-        envelope.classList.add('opened');
-        
-        setTimeout(() => {
-          letterContent.classList.remove('hidden');
-          
-          // Explosion effects
-          createLoveExplosion();
-          createConfettiBurst();
-          setTimeout(createConfettiBurst, 300);
-          
-          // Show popup messages
-          setTimeout(() => showLoveMessage('welcome'), 800);
-          setTimeout(() => showLoveMessage('eve'), 2000);
-          setTimeout(() => showLoveMessage('forever'), 3200);
-          
-          letterContent.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          
-        }, 600);
-      }
-    }
-
-    // Show love messages
-    function showLoveMessage(type) {
-      const popup = document.getElementById('lovePopup');
+    // Click if you love me button
+    function showLoveMessage() {
+      createConfetti();
+      const popup = document.getElementById('messagePopup');
       const overlay = document.getElementById('overlay');
       const icon = document.getElementById('popupIcon');
       const text = document.getElementById('popupText');
       
-      const messages = {
-        'welcome': { icon: 'favorite', text: 'Welcome my love! You opened my heart!' },
-        'eve': { icon: 'spa', text: 'You are my Eve, my perfect match!' },
-        'forever': { icon: 'infinity', text: 'Let\'s create our own Eden together!' }
-      };
-      
-      const msg = messages[type] || messages['welcome'];
-      icon.textContent = msg.icon;
-      text.textContent = msg.text;
+      icon.textContent = 'favorite';
+      text.textContent = 'I love you too, Grace! More than words can say... ❤️';
       
       popup.classList.remove('hidden');
       overlay.classList.remove('hidden');
       
-      setTimeout(closePopup, 2500);
+      // Show acceptance message
+      setTimeout(() => {
+        const acceptance = document.getElementById('acceptanceMessage');
+        const acceptanceText = document.getElementById('acceptanceText');
+        acceptanceText.textContent = 'My heart is yours forever. Every beat whispers your name, every breath is a prayer for your happiness. You are my today, my tomorrow, and my always. I promise to love you, cherish you, and make you smile every single day. Will you be mine forever?';
+        acceptance.classList.remove('hidden');
+      }, 500);
+    }
+
+    // Open gift boxes
+    function openGift(giftNumber) {
+      createConfetti();
+      const popup = document.getElementById('messagePopup');
+      const overlay = document.getElementById('overlay');
+      const icon = document.getElementById('popupIcon');
+      const text = document.getElementById('popupText');
+      
+      const gifts = {
+        1: { icon: 'card_giftcard', text: 'Be Mine Forever - I choose you, today, tomorrow, and always. You are my forever person, my soulmate, my everything.' },
+        2: { icon: 'redeem', text: 'Endless Kisses - Every kiss I give you will be filled with passion, tenderness, and all the love in my heart. You deserve infinite affection.' },
+        3: { icon: 'celebration', text: 'Forever Love - My love for you has no end. It grows stronger every day, deeper every moment, more beautiful with every heartbeat.' },
+        4: { icon: 'spa', text: 'My Whole Heart - I give you my heart completely, without reservation, without hesitation. It belongs to you and only you.' }
+      };
+      
+      const gift = gifts[giftNumber];
+      icon.textContent = gift.icon;
+      text.textContent = gift.text;
+      
+      popup.classList.remove('hidden');
+      overlay.classList.remove('hidden');
+    }
+
+    // Love game
+    function checkAnswer(element, isCorrect) {
+      const gameMessage = document.getElementById('gameMessage');
+      
+      if (isCorrect) {
+        element.classList.add('correct');
+        gameMessage.innerHTML = '<span class="text-green-600 font-bold">✓ Correct! You know me so well! ❤️</span>';
+        createConfetti();
+      } else {
+        element.classList.add('wrong');
+        gameMessage.innerHTML = '<span class="text-red-600 font-bold">✗ Oops! That\'s not what love does! 😅</span>';
+      }
+      
+      // Remove classes after animation
+      setTimeout(() => {
+        element.classList.remove('correct', 'wrong');
+      }, 1000);
     }
 
     function closePopup() {
-      document.getElementById('lovePopup').classList.add('hidden');
+      document.getElementById('messagePopup').classList.add('hidden');
       document.getElementById('overlay').classList.add('hidden');
     }
 
-    // Create sparkles on click
-    document.addEventListener('click', function(e) {
-      for (let i = 0; i < 8; i++) {
-        setTimeout(() => {
-          const sparkle = document.createElement('div');
-          sparkle.className = 'sparkle';
-          sparkle.style.left = e.pageX + (Math.random() * 60 - 30) + 'px';
-          sparkle.style.top = e.pageY + (Math.random() * 60 - 30) + 'px';
-          sparkle.style.background = `hsl(${Math.random() * 30 + 330}, 100%, 70%)`;
-          document.body.appendChild(sparkle);
-          setTimeout(() => sparkle.remove(), 1000);
-        }, i * 70);
-      }
-    });
-
-    // Initialize everything
+    // Initialize
     window.onload = function() {
-      initIcons();
-      initPetals();
-      
-      setTimeout(() => {
-        createConfettiBurst();
-      }, 1000);
+      initHearts();
+      createConfetti();
     };
   </script>
 </body>
