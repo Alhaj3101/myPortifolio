@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-  <title>Grace · our love game 💕</title>
+  <title>Grace · our love world 💕</title>
   <!-- Tailwind + Material Icons -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -73,6 +73,58 @@
       margin: 20px auto;
       position: relative;
       z-index: 10;
+    }
+
+    /* Navigation Tabs */
+    .nav-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+    }
+
+    .nav-tab {
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(5px);
+      padding: 12px 20px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      color: white;
+      transition: all 0.3s;
+      border: 2px solid transparent;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+    }
+
+    .nav-tab.active {
+      background: #ff1493;
+      border-color: white;
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(255, 20, 147, 0.4);
+    }
+
+    .nav-tab:hover {
+      background: #ff69b4;
+      transform: translateY(-2px);
+    }
+
+    /* Sections */
+    .section {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* Click if you love me button */
@@ -160,7 +212,7 @@
       font-weight: bold;
     }
 
-    /* LOVE MEMORY MATCH GAME - Main attraction */
+    /* Game sections */
     .game-section {
       background: rgba(255, 240, 245, 0.9);
       border-radius: 40px;
@@ -188,6 +240,7 @@
       border: 2px solid #ffb6c1;
     }
 
+    /* Memory Match Grid */
     .memory-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -258,41 +311,104 @@
       background: #d4edda;
     }
 
-    .game-message {
-      text-align: center;
-      font-size: 1.2rem;
-      margin: 15px 0;
-      min-height: 50px;
-      font-family: 'Dancing Script', cursive;
+    /* Name Match Game specific */
+    .name-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 20px 0;
     }
 
-    .love-quote {
-      background: white;
-      padding: 15px;
-      border-radius: 30px;
-      border-left: 6px solid #ff1493;
-      margin: 15px 0;
-      font-style: italic;
-    }
-
-    .reset-button {
-      background: #ff1493;
-      color: white;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 50px;
-      cursor: pointer;
-      font-size: 1.1rem;
-      display: inline-flex;
+    .letter-card {
+      aspect-ratio: 1;
+      background: linear-gradient(145deg, #ff69b4, #ff1493);
+      border-radius: 20px;
+      display: flex;
       align-items: center;
-      gap: 10px;
-      margin: 10px 0;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.4s;
+      transform-style: preserve-3d;
+      position: relative;
+      box-shadow: 0 8px 15px rgba(199, 21, 133, 0.3);
+      font-size: 2rem;
+      font-weight: bold;
+      color: white;
+    }
+
+    .letter-card.flipped {
+      background: white;
+      color: #ff1493;
+      transform: rotateY(180deg);
+    }
+
+    .letter-card.matched {
+      background: #d4edda;
+      cursor: default;
+      opacity: 0.8;
+      transform: scale(0.95);
+      border: 2px solid #28a745;
+      color: #28a745;
+    }
+
+    .letter-card .front,
+    .letter-card .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+    }
+
+    .letter-card .front {
+      background: linear-gradient(145deg, #ff69b4, #ff1493);
+      color: white;
+      transform: rotateY(0deg);
+    }
+
+    .letter-card .back {
+      background: white;
+      color: #ff1493;
+      transform: rotateY(180deg);
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .letter-card.flipped .front {
+      transform: rotateY(180deg);
+    }
+
+    .letter-card.flipped .back {
+      transform: rotateY(0deg);
+    }
+
+    .love-percentage {
+      font-size: 3rem;
+      font-family: 'Great Vibes', cursive;
+      color: #ff1493;
+      text-align: center;
+      margin: 20px 0;
+      animation: pulse 2s infinite;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 30px;
+      background: #ffe4e1;
+      border-radius: 50px;
+      overflow: hidden;
+      margin: 20px 0;
       border: 2px solid white;
     }
 
-    .reset-button:hover {
-      background: #c71585;
-      transform: scale(1.05);
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #ff69b4, #ff1493);
+      transition: width 0.5s;
+      width: 0%;
     }
 
     /* Message popup */
@@ -363,6 +479,26 @@
       42% { transform: scale(1.2); }
       70% { transform: scale(1); }
     }
+
+    .reset-button {
+      background: #ff1493;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 10px 0;
+      border: 2px solid white;
+    }
+
+    .reset-button:hover {
+      background: #c71585;
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
@@ -378,78 +514,140 @@
       <div class="text-center mb-4">
         <span class="material-icons text-4xl text-pink-600 heart-beat">favorite</span>
         <h1 class="font-['Great_Vibes'] text-4xl text-red-600 mt-1">My Dearest Grace</h1>
-        <p class="text-gray-600 text-sm">Every moment with you is a treasure...</p>
+        <p class="text-gray-600 text-sm">Everything I made with love for you...</p>
       </div>
 
-      <!-- Click if you love me button -->
-      <button onclick="showLoveMessage()" class="love-button pulse" id="loveButton">
-        ❤️ Click if you love me ❤️
-      </button>
-
-      <!-- Gift boxes section -->
-      <h2 class="font-['Dancing_Script'] text-2xl text-pink-600 text-center mb-3">
-        Choose a gift, my love 🎁
-      </h2>
-      
-      <div class="gift-grid">
-        <div class="gift-box" onclick="openGift(1)">
-          <span class="material-icons gift-icon">card_giftcard</span>
-          <span class="gift-text">Be Mine Forever</span>
+      <!-- Navigation Tabs -->
+      <div class="nav-tabs">
+        <div class="nav-tab active" onclick="switchSection('love')">
+          <span class="material-icons">favorite</span> Love
         </div>
-        <div class="gift-box" onclick="openGift(2)">
-          <span class="material-icons gift-icon">redeem</span>
-          <span class="gift-text">Endless Kisses</span>
+        <div class="nav-tab" onclick="switchSection('gifts')">
+          <span class="material-icons">card_giftcard</span> Gifts
         </div>
-        <div class="gift-box" onclick="openGift(3)">
-          <span class="material-icons gift-icon">celebration</span>
-          <span class="gift-text">Forever Love</span>
+        <div class="nav-tab" onclick="switchSection('memory')">
+          <span class="material-icons">memory</span> Memories
         </div>
-        <div class="gift-box" onclick="openGift(4)">
-          <span class="material-icons gift-icon">spa</span>
-          <span class="gift-text">My Whole Heart</span>
+        <div class="nav-tab" onclick="switchSection('namegame')">
+          <span class="material-icons">abc</span> Name Game
         </div>
       </div>
 
-      <!-- LOVE MEMORY MATCH GAME - Emotional & Continuous -->
-      <div class="game-section">
-        <div class="game-title">💕 Love Memory Match 💕</div>
+      <!-- LOVE Section -->
+      <div id="loveSection" class="section active">
+        <!-- Click if you love me button -->
+        <button onclick="showLoveMessage()" class="love-button pulse" id="loveButton">
+          ❤️ Click if you love me ❤️
+        </button>
+
+        <!-- Acceptance message (hidden initially) -->
+        <div id="acceptanceMessage" class="hidden text-center mt-4 p-5 bg-pink-50 rounded-3xl border-3 border-pink-300">
+          <span class="material-icons text-4xl text-pink-600">favorite</span>
+          <h3 class="font-['Great_Vibes'] text-2xl text-red-600 mt-1">You said YES!</h3>
+          <p class="text-gray-700 text-sm mt-2 leading-relaxed" id="acceptanceText"></p>
+        </div>
+      </div>
+
+      <!-- GIFTS Section -->
+      <div id="giftsSection" class="section">
+        <h2 class="font-['Dancing_Script'] text-2xl text-pink-600 text-center mb-3">
+          Choose a gift, my love 🎁
+        </h2>
         
-        <div class="game-stats">
-          <span><span class="material-icons text-pink-500 align-middle">favorite</span> Score: <span id="score">0</span></span>
-          <span><span class="material-icons text-pink-500 align-middle">stars</span> Level: <span id="level">1</span></span>
-          <span><span class="material-icons text-pink-500 align-middle">celebration</span> Matches: <span id="matches">0</span>/<span id="totalPairs">6</span></span>
-        </div>
-
-        <!-- Memory Grid -->
-        <div class="memory-grid" id="memoryGrid"></div>
-
-        <!-- Game Message -->
-        <div class="game-message" id="gameMessage">
-          <span class="material-icons text-pink-500">favorite</span>
-          Match the love memories, my dear!
-          <span class="material-icons text-pink-500">favorite</span>
-        </div>
-
-        <!-- Love Quote (changes with level) -->
-        <div class="love-quote" id="loveQuote">
-          "Every love story is beautiful, but ours is my favorite."
-        </div>
-
-        <!-- Reset Button -->
-        <div class="text-center">
-          <button onclick="resetGame()" class="reset-button">
-            <span class="material-icons">favorite</span>
-            New Game
-            <span class="material-icons">favorite</span>
-          </button>
+        <div class="gift-grid">
+          <div class="gift-box" onclick="openGift(1)">
+            <span class="material-icons gift-icon">card_giftcard</span>
+            <span class="gift-text">Be Mine Forever</span>
+          </div>
+          <div class="gift-box" onclick="openGift(2)">
+            <span class="material-icons gift-icon">redeem</span>
+            <span class="gift-text">Endless Kisses</span>
+          </div>
+          <div class="gift-box" onclick="openGift(3)">
+            <span class="material-icons gift-icon">celebration</span>
+            <span class="gift-text">Forever Love</span>
+          </div>
+          <div class="gift-box" onclick="openGift(4)">
+            <span class="material-icons gift-icon">spa</span>
+            <span class="gift-text">My Whole Heart</span>
+          </div>
         </div>
       </div>
 
-      <!-- Acceptance message (hidden initially) -->
-      <div id="acceptanceMessage" class="hidden text-center mt-4 p-5 bg-pink-50 rounded-3xl border-3 border-pink-300">
-        <span class="material-icons text-4xl text-pink-600">favorite</span>
-        <h3 class="font-['Great_Vibes'] text-2xl text-red-600 mt-1">You said YES!</h3>
-        <p class="text-gray-700 text-sm mt-2 leading-relaxed" id="acceptanceText"></p>
+      <!-- MEMORY MATCH Section -->
+      <div id="memorySection" class="section">
+        <div class="game-section">
+          <div class="game-title">💕 Memory Match 💕</div>
+          
+          <div class="game-stats">
+            <span><span class="material-icons text-pink-500 align-middle">favorite</span> Score: <span id="score">0</span></span>
+            <span><span class="material-icons text-pink-500 align-middle">stars</span> Level: <span id="level">1</span></span>
+            <span><span class="material-icons text-pink-500 align-middle">celebration</span> Matches: <span id="matches">0</span>/<span id="totalPairs">6</span></span>
+          </div>
+
+          <div class="memory-grid" id="memoryGrid"></div>
+
+          <div class="game-message" id="gameMessage">
+            <span class="material-icons text-pink-500">favorite</span>
+            Match the love memories!
+            <span class="material-icons text-pink-500">favorite</span>
+          </div>
+
+          <div class="love-quote" id="loveQuote">
+            "Every love story is beautiful, but ours is my favorite."
+          </div>
+
+          <div class="text-center">
+            <button onclick="resetMemoryGame()" class="reset-button">
+              <span class="material-icons">favorite</span>
+              New Game
+              <span class="material-icons">favorite</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- NAME MATCH GAME Section -->
+      <div id="nameGameSection" class="section">
+        <div class="game-section">
+          <div class="game-title">💕 Name Love Game 💕</div>
+          
+          <div class="text-center mb-4">
+            <span class="text-2xl font-['Dancing_Script'] text-pink-600">Grace</span>
+            <span class="material-icons text-pink-400 mx-2">favorite</span>
+            <span class="text-2xl font-['Dancing_Script'] text-pink-600">Alhaj</span>
+          </div>
+
+          <div class="game-stats">
+            <span><span class="material-icons text-pink-500 align-middle">favorite</span> Matches: <span id="nameMatches">0</span>/<span id="totalLetters">9</span></span>
+            <span><span class="material-icons text-pink-500 align-middle">percent</span> Love: <span id="lovePercent">0</span>%</span>
+          </div>
+
+          <!-- Name Match Grid -->
+          <div class="name-grid" id="nameGrid"></div>
+
+          <!-- Love Percentage Display -->
+          <div class="love-percentage" id="lovePercentageDisplay">0% Love</div>
+
+          <!-- Progress Bar -->
+          <div class="progress-bar">
+            <div class="progress-fill" id="loveProgress" style="width: 0%"></div>
+          </div>
+
+          <div class="game-message" id="nameGameMessage">
+            <span class="material-icons text-pink-500">favorite</span>
+            Match letters from our names!
+            <span class="material-icons text-pink-500">favorite</span>
+          </div>
+
+          <div class="text-center">
+            <button onclick="resetNameGame()" class="reset-button">
+              <span class="material-icons">favorite</span>
+              New Game
+              <span class="material-icons">favorite</span>
+            </button>
+          </div>
+        </div>
       </div>
 
       <!-- Romantic footer -->
@@ -470,78 +668,379 @@
   <div id="overlay" class="overlay hidden" onclick="closePopup()"></div>
 
   <script>
-    // ==================== LOVE MEMORY MATCH GAME ====================
-    // Emotional memory pairs - each one represents a special moment or feeling
+    // ==================== NAVIGATION ====================
+    function switchSection(section) {
+      // Hide all sections
+      document.getElementById('loveSection').classList.remove('active');
+      document.getElementById('giftsSection').classList.remove('active');
+      document.getElementById('memorySection').classList.remove('active');
+      document.getElementById('nameGameSection').classList.remove('active');
+      
+      // Remove active class from all tabs
+      document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+      
+      // Show selected section
+      if (section === 'love') {
+        document.getElementById('loveSection').classList.add('active');
+        document.querySelectorAll('.nav-tab')[0].classList.add('active');
+      } else if (section === 'gifts') {
+        document.getElementById('giftsSection').classList.add('active');
+        document.querySelectorAll('.nav-tab')[1].classList.add('active');
+      } else if (section === 'memory') {
+        document.getElementById('memorySection').classList.add('active');
+        document.querySelectorAll('.nav-tab')[2].classList.add('active');
+        initMemoryGame(); // Initialize memory game when switching to it
+      } else if (section === 'namegame') {
+        document.getElementById('nameGameSection').classList.add('active');
+        document.querySelectorAll('.nav-tab')[3].classList.add('active');
+        initNameGame(); // Initialize name game when switching to it
+      }
+      
+      createConfetti(10);
+    }
+
+    // ==================== LOVE SECTION ====================
+    function showLoveMessage() {
+      createConfetti(50);
+      const popup = document.getElementById('messagePopup');
+      const overlay = document.getElementById('overlay');
+      const icon = document.getElementById('popupIcon');
+      const text = document.getElementById('popupText');
+      
+      icon.textContent = 'favorite';
+      text.textContent = 'I love you too, Grace! More than words can say... ❤️';
+      
+      popup.classList.remove('hidden');
+      overlay.classList.remove('hidden');
+      
+      // Show acceptance message
+      setTimeout(() => {
+        const acceptance = document.getElementById('acceptanceMessage');
+        const acceptanceText = document.getElementById('acceptanceText');
+        acceptanceText.textContent = 'My heart is yours forever. Every beat whispers your name, every breath is a prayer for your happiness. You are my today, my tomorrow, and my always. I promise to love you, cherish you, and make you smile every single day. Will you be mine forever?';
+        acceptance.classList.remove('hidden');
+      }, 500);
+    }
+
+    // ==================== GIFTS SECTION ====================
+    function openGift(giftNumber) {
+      createConfetti(20);
+      const popup = document.getElementById('messagePopup');
+      const overlay = document.getElementById('overlay');
+      const icon = document.getElementById('popupIcon');
+      const text = document.getElementById('popupText');
+      
+      const gifts = {
+        1: { icon: 'card_giftcard', text: 'Be Mine Forever - I choose you, today, tomorrow, and always. You are my forever person, my soulmate, my everything.' },
+        2: { icon: 'redeem', text: 'Endless Kisses - Every kiss I give you will be filled with passion, tenderness, and all the love in my heart. You deserve infinite affection.' },
+        3: { icon: 'celebration', text: 'Forever Love - My love for you has no end. It grows stronger every day, deeper every moment, more beautiful with every heartbeat.' },
+        4: { icon: 'spa', text: 'My Whole Heart - I give you my heart completely, without reservation, without hesitation. It belongs to you and only you.' }
+      };
+      
+      const gift = gifts[giftNumber];
+      icon.textContent = gift.icon;
+      text.textContent = gift.text;
+      
+      popup.classList.remove('hidden');
+      overlay.classList.remove('hidden');
+    }
+
+    // ==================== MEMORY MATCH GAME ====================
     const memoryPairs = [
       { id: 1, icon: 'favorite', text: 'First Kiss', emoji: '💋' },
       { id: 2, icon: 'beach_access', text: 'Sunset Walk', emoji: '🌅' },
       { id: 3, icon: 'cake', text: 'Birthday Surprise', emoji: '🎂' },
       { id: 4, icon: 'umbrella', text: 'Rainy Day Hug', emoji: '☔' },
       { id: 5, icon: 'coffee', text: 'Coffee Date', emoji: '☕' },
-      { id: 6, icon: 'music_note', text: 'Our Song', emoji: '🎵' },
-      { id: 7, icon: 'flight', text: 'First Trip', emoji: '✈️' },
-      { id: 8, icon: 'restaurant', text: 'Fancy Dinner', emoji: '🍷' },
-      { id: 9, icon: 'movie', text: 'Movie Night', emoji: '🎬' },
-      { id: 10, icon: 'pets', text: 'Cute Animals', emoji: '🐕' },
-      { id: 11, icon: 'beach_access', text: 'Ocean Waves', emoji: '🌊' },
-      { id: 12, icon: 'stars', text: 'Stargazing', emoji: '⭐' }
+      { id: 6, icon: 'music_note', text: 'Our Song', emoji: '🎵' }
     ];
 
-    // Love quotes that change with level
     const loveQuotes = [
       "Every love story is beautiful, but ours is my favorite.",
       "You are the poem I never knew how to write.",
       "In your eyes, I found my forever home.",
       "I love you more than all the stars in the sky.",
       "You're my today, my tomorrow, and my always.",
-      "My heart beats only for you, Grace.",
-      "You make every moment magical.",
-      "Being with you feels like a beautiful dream.",
-      "You're the best thing that ever happened to me.",
-      "Our love grows stronger every single day."
+      "My heart beats only for you, Grace."
     ];
 
-    let cards = [];
-    let flippedCards = [];
-    let matchedPairs = 0;
-    let score = 0;
-    let level = 1;
-    let canFlip = true;
-    let gameMessage = document.getElementById('gameMessage');
-    let memoryGrid = document.getElementById('memoryGrid');
-    let scoreSpan = document.getElementById('score');
-    let levelSpan = document.getElementById('level');
-    let matchesSpan = document.getElementById('matches');
-    let totalPairsSpan = document.getElementById('totalPairs');
-    let loveQuote = document.getElementById('loveQuote');
+    let memoryCards = [];
+    let flippedMemoryCards = [];
+    let matchedMemoryPairs = 0;
+    let memoryScore = 0;
+    let memoryLevel = 1;
+    let canFlipMemory = true;
 
-    // Initialize game based on level
-    function initGame() {
-      // Determine number of pairs based on level (increases difficulty)
-      let numPairs = Math.min(4 + level, memoryPairs.length); // Start with 4 pairs at level 1
-      totalPairsSpan.textContent = numPairs;
+    function initMemoryGame() {
+      let numPairs = Math.min(4 + memoryLevel, memoryPairs.length);
+      document.getElementById('totalPairs').textContent = numPairs;
       
-      // Select random memories for this level
       let selectedPairs = memoryPairs.slice(0, numPairs);
       
-      // Create card pairs
-      cards = [];
-      selectedPairs.forEach((pair, index) => {
-        // Add two of each pair
-        cards.push({ id: pair.id, icon: pair.icon, text: pair.text, emoji: pair.emoji, matched: false, cardId: Math.random() });
-        cards.push({ id: pair.id, icon: pair.icon, text: pair.text, emoji: pair.emoji, matched: false, cardId: Math.random() });
+      memoryCards = [];
+      selectedPairs.forEach((pair) => {
+        memoryCards.push({ id: pair.id, icon: pair.icon, text: pair.text, matched: false, cardId: Math.random() });
+        memoryCards.push({ id: pair.id, icon: pair.icon, text: pair.text, matched: false, cardId: Math.random() });
       });
       
-      // Shuffle cards
-      cards = shuffleArray(cards);
+      memoryCards = shuffleArray(memoryCards);
       
-      matchedPairs = 0;
-      matchesSpan.textContent = matchedPairs;
-      flippedCards = [];
-      renderGrid();
+      matchedMemoryPairs = 0;
+      document.getElementById('matches').textContent = matchedMemoryPairs;
+      flippedMemoryCards = [];
+      renderMemoryGrid();
     }
 
-    // Shuffle array (Fisher-Yates)
+    function renderMemoryGrid() {
+      let html = '';
+      memoryCards.forEach((card, index) => {
+        let cardClass = 'memory-card';
+        if (card.matched) cardClass += ' matched';
+        html += `
+          <div class="${cardClass}" onclick="flipMemoryCard(this, ${index})" data-index="${index}">
+            <div class="front"><span class="material-icons text-white text-2xl">favorite</span></div>
+            <div class="back"><span class="material-icons text-pink-600 text-2xl">${card.icon}</span></div>
+          </div>
+        `;
+      });
+      document.getElementById('memoryGrid').innerHTML = html;
+    }
+
+    function flipMemoryCard(element, index) {
+      if (!canFlipMemory) return;
+      if (memoryCards[index].matched) return;
+      if (flippedMemoryCards.includes(index)) return;
+      if (flippedMemoryCards.length >= 2) return;
+
+      element.classList.add('flipped');
+      flippedMemoryCards.push(index);
+
+      if (flippedMemoryCards.length === 2) {
+        checkMemoryMatch();
+      }
+    }
+
+    function checkMemoryMatch() {
+      canFlipMemory = false;
+      let card1 = memoryCards[flippedMemoryCards[0]];
+      let card2 = memoryCards[flippedMemoryCards[1]];
+
+      if (card1.id === card2.id) {
+        setTimeout(() => {
+          memoryCards[flippedMemoryCards[0]].matched = true;
+          memoryCards[flippedMemoryCards[1]].matched = true;
+          
+          document.querySelector(`[data-index="${flippedMemoryCards[0]}"]`).classList.add('matched');
+          document.querySelector(`[data-index="${flippedMemoryCards[1]}"]`).classList.add('matched');
+          
+          matchedMemoryPairs++;
+          document.getElementById('matches').textContent = matchedMemoryPairs;
+          memoryScore += 10 * memoryLevel;
+          document.getElementById('score').textContent = memoryScore;
+          
+          document.getElementById('gameMessage').innerHTML = `<span class="text-green-600">💕 Perfect match! That's our ${card1.text} memory! 💕</span>`;
+          createConfetti(10);
+          
+          if (matchedMemoryPairs === memoryCards.length / 2) {
+            levelComplete();
+          }
+          
+          flippedMemoryCards = [];
+          canFlipMemory = true;
+        }, 500);
+      } else {
+        setTimeout(() => {
+          document.querySelector(`[data-index="${flippedMemoryCards[0]}"]`).classList.remove('flipped');
+          document.querySelector(`[data-index="${flippedMemoryCards[1]}"]`).classList.remove('flipped');
+          
+          document.getElementById('gameMessage').innerHTML = `<span class="text-pink-600">Not a match... but our love is always perfect ❤️</span>`;
+          
+          flippedMemoryCards = [];
+          canFlipMemory = true;
+        }, 800);
+      }
+    }
+
+    function levelComplete() {
+      memoryLevel++;
+      document.getElementById('level').textContent = memoryLevel;
+      
+      let quoteIndex = (memoryLevel - 1) % loveQuotes.length;
+      document.getElementById('loveQuote').textContent = `"${loveQuotes[quoteIndex]}"`;
+      
+      document.getElementById('gameMessage').innerHTML = `<span class="text-purple-600 font-bold">✨ LEVEL ${memoryLevel-1} COMPLETE! ✨</span>`;
+      createConfetti(30);
+      
+      memoryScore += 50;
+      document.getElementById('score').textContent = memoryScore;
+      
+      setTimeout(() => {
+        initMemoryGame();
+      }, 1500);
+    }
+
+    function resetMemoryGame() {
+      memoryLevel = 1;
+      memoryScore = 0;
+      document.getElementById('score').textContent = memoryScore;
+      document.getElementById('level').textContent = memoryLevel;
+      document.getElementById('loveQuote').textContent = `"${loveQuotes[0]}"`;
+      initMemoryGame();
+      createConfetti(15);
+    }
+
+    // ==================== NAME MATCH GAME ====================
+    const graceName = ['G', 'R', 'A', 'C', 'E'];
+    const alhajName = ['A', 'L', 'H', 'A', 'J'];
+    const allLetters = [...graceName, ...alhajName];
+
+    let nameCards = [];
+    let flippedNameCards = [];
+    let matchedNamePairs = 0;
+    let canFlipName = true;
+    let lovePercentage = 0;
+
+    function initNameGame() {
+      // Create cards for each letter (two of each for matching)
+      nameCards = [];
+      
+      // Add Grace's letters
+      graceName.forEach(letter => {
+        nameCards.push({ letter: letter, owner: 'grace', matched: false, id: Math.random() });
+        nameCards.push({ letter: letter, owner: 'grace', matched: false, id: Math.random() });
+      });
+      
+      // Add Alhaj's letters
+      alhajName.forEach(letter => {
+        nameCards.push({ letter: letter, owner: 'alhaj', matched: false, id: Math.random() });
+        nameCards.push({ letter: letter, owner: 'alhaj', matched: false, id: Math.random() });
+      });
+      
+      nameCards = shuffleArray(nameCards);
+      
+      matchedNamePairs = 0;
+      lovePercentage = 0;
+      document.getElementById('nameMatches').textContent = matchedNamePairs;
+      document.getElementById('totalLetters').textContent = graceName.length + alhajName.length;
+      document.getElementById('lovePercent').textContent = lovePercentage;
+      document.getElementById('lovePercentageDisplay').textContent = '0% Love';
+      document.getElementById('loveProgress').style.width = '0%';
+      
+      flippedNameCards = [];
+      renderNameGrid();
+    }
+
+    function renderNameGrid() {
+      let html = '';
+      nameCards.forEach((card, index) => {
+        let cardClass = 'letter-card';
+        if (card.matched) cardClass += ' matched';
+        html += `
+          <div class="${cardClass}" onclick="flipNameCard(this, ${index})" data-index="${index}">
+            <div class="front"><span class="text-2xl">?</span></div>
+            <div class="back"><span class="text-2xl" style="color: ${card.owner === 'grace' ? '#ff1493' : '#c71585'}">${card.letter}</span></div>
+          </div>
+        `;
+      });
+      document.getElementById('nameGrid').innerHTML = html;
+    }
+
+    function flipNameCard(element, index) {
+      if (!canFlipName) return;
+      if (nameCards[index].matched) return;
+      if (flippedNameCards.includes(index)) return;
+      if (flippedNameCards.length >= 2) return;
+
+      element.classList.add('flipped');
+      flippedNameCards.push(index);
+
+      if (flippedNameCards.length === 2) {
+        checkNameMatch();
+      }
+    }
+
+    function checkNameMatch() {
+      canFlipName = false;
+      let card1 = nameCards[flippedNameCards[0]];
+      let card2 = nameCards[flippedNameCards[1]];
+
+      // Check if they match (same letter and different owners)
+      if (card1.letter === card2.letter && card1.owner !== card2.owner) {
+        // PERFECT MATCH!
+        setTimeout(() => {
+          nameCards[flippedNameCards[0]].matched = true;
+          nameCards[flippedNameCards[1]].matched = true;
+          
+          document.querySelector(`[data-index="${flippedNameCards[0]}"]`).classList.add('matched');
+          document.querySelector(`[data-index="${flippedNameCards[1]}"]`).classList.add('matched');
+          
+          matchedNamePairs++;
+          lovePercentage = Math.round((matchedNamePairs / (graceName.length + alhajName.length)) * 100);
+          
+          document.getElementById('nameMatches').textContent = matchedNamePairs;
+          document.getElementById('lovePercent').textContent = lovePercentage;
+          document.getElementById('lovePercentageDisplay').textContent = lovePercentage + '% Love';
+          document.getElementById('loveProgress').style.width = lovePercentage + '%';
+          
+          // Romantic messages based on percentage
+          let message = '';
+          if (lovePercentage < 30) message = '💕 Our love is growing!';
+          else if (lovePercentage < 60) message = '💖 We\'re getting there!';
+          else if (lovePercentage < 80) message = '💗 Almost perfect!';
+          else if (lovePercentage < 100) message = '💘 So close to 100%!';
+          else message = '💞 100% PERFECT LOVE! We are meant to be!';
+          
+          document.getElementById('nameGameMessage').innerHTML = `<span class="text-green-600">${message}</span>`;
+          createConfetti(15);
+          
+          // Check if game complete
+          if (matchedNamePairs === graceName.length + alhajName.length) {
+            gameComplete();
+          }
+          
+          flippedNameCards = [];
+          canFlipName = true;
+        }, 500);
+      } else {
+        // No match
+        setTimeout(() => {
+          document.querySelector(`[data-index="${flippedNameCards[0]}"]`).classList.remove('flipped');
+          document.querySelector(`[data-index="${flippedNameCards[1]}"]`).classList.remove('flipped');
+          
+          document.getElementById('nameGameMessage').innerHTML = `<span class="text-pink-600">Not a match... try again ❤️</span>`;
+          
+          flippedNameCards = [];
+          canFlipName = true;
+        }, 800);
+      }
+    }
+
+    function gameComplete() {
+      document.getElementById('nameGameMessage').innerHTML = `<span class="text-purple-600 font-bold">✨ 100% LOVE! We are perfect together! ✨</span>`;
+      createConfetti(50);
+      
+      // Show special popup
+      setTimeout(() => {
+        const popup = document.getElementById('messagePopup');
+        const overlay = document.getElementById('overlay');
+        const icon = document.getElementById('popupIcon');
+        const text = document.getElementById('popupText');
+        
+        icon.textContent = 'favorite';
+        text.textContent = '100% LOVE! Grace and Alhaj are meant to be! 💕';
+        
+        popup.classList.remove('hidden');
+        overlay.classList.remove('hidden');
+      }, 500);
+    }
+
+    function resetNameGame() {
+      initNameGame();
+      createConfetti(15);
+      document.getElementById('nameGameMessage').innerHTML = '<span class="material-icons text-pink-500">favorite</span> Match our letters! <span class="material-icons text-pink-500">favorite</span>';
+    }
+
+    // ==================== UTILITY FUNCTIONS ====================
     function shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -550,129 +1049,6 @@
       return array;
     }
 
-    // Render memory grid
-    function renderGrid() {
-      let html = '';
-      cards.forEach((card, index) => {
-        let cardClass = 'memory-card';
-        if (card.matched) {
-          cardClass += ' matched';
-        }
-        html += `
-          <div class="${cardClass}" onclick="flipCard(this, ${index})" data-index="${index}">
-            <div class="front">
-              <span class="material-icons text-white text-2xl">favorite</span>
-            </div>
-            <div class="back">
-              <span class="material-icons text-pink-600 text-2xl">${card.icon}</span>
-            </div>
-          </div>
-        `;
-      });
-      memoryGrid.innerHTML = html;
-    }
-
-    // Flip card
-    function flipCard(element, index) {
-      if (!canFlip) return;
-      if (cards[index].matched) return;
-      if (flippedCards.includes(index)) return;
-      if (flippedCards.length >= 2) return;
-
-      // Add flipped class
-      element.classList.add('flipped');
-      flippedCards.push(index);
-
-      // Check for match when two cards are flipped
-      if (flippedCards.length === 2) {
-        checkMatch();
-      }
-    }
-
-    // Check if flipped cards match
-    function checkMatch() {
-      canFlip = false;
-      let card1 = cards[flippedCards[0]];
-      let card2 = cards[flippedCards[1]];
-
-      if (card1.id === card2.id) {
-        // MATCH FOUND!
-        setTimeout(() => {
-          cards[flippedCards[0]].matched = true;
-          cards[flippedCards[1]].matched = true;
-          
-          // Update DOM
-          document.querySelector(`[data-index="${flippedCards[0]}"]`).classList.add('matched');
-          document.querySelector(`[data-index="${flippedCards[1]}"]`).classList.add('matched');
-          
-          matchedPairs++;
-          matchesSpan.textContent = matchedPairs;
-          score += 10 * level;
-          scoreSpan.textContent = score;
-          
-          // Show romantic message
-          gameMessage.innerHTML = `<span class="text-green-600">💕 Perfect match! That's our ${card1.text} memory! 💕</span>`;
-          createConfetti(10);
-          
-          // Check if level complete
-          if (matchedPairs === cards.length / 2) {
-            levelComplete();
-          }
-          
-          flippedCards = [];
-          canFlip = true;
-        }, 500);
-      } else {
-        // NO MATCH
-        setTimeout(() => {
-          // Unflip cards
-          document.querySelector(`[data-index="${flippedCards[0]}"]`).classList.remove('flipped');
-          document.querySelector(`[data-index="${flippedCards[1]}"]`).classList.remove('flipped');
-          
-          gameMessage.innerHTML = `<span class="text-pink-600">Not a match... but our love is always perfect ❤️</span>`;
-          
-          flippedCards = [];
-          canFlip = true;
-        }, 800);
-      }
-    }
-
-    // Level complete - advance to next level with more memories
-    function levelComplete() {
-      level++;
-      levelSpan.textContent = level;
-      
-      // Update love quote
-      let quoteIndex = (level - 1) % loveQuotes.length;
-      loveQuote.textContent = `"${loveQuotes[quoteIndex]}"`;
-      
-      // Show celebration message
-      gameMessage.innerHTML = `<span class="text-purple-600 font-bold">✨ LEVEL ${level-1} COMPLETE! You're amazing! ✨</span>`;
-      createConfetti(30);
-      
-      // Add bonus points
-      score += 50;
-      scoreSpan.textContent = score;
-      
-      // Start next level
-      setTimeout(() => {
-        initGame();
-      }, 1500);
-    }
-
-    // Reset game
-    function resetGame() {
-      level = 1;
-      score = 0;
-      scoreSpan.textContent = score;
-      levelSpan.textContent = level;
-      loveQuote.textContent = `"${loveQuotes[0]}"`;
-      initGame();
-      createConfetti(15);
-      gameMessage.innerHTML = '<span class="material-icons text-pink-500">favorite</span> New game, new memories! <span class="material-icons text-pink-500">favorite</span>';
-    }
-
-    // Floating hearts
     function initHearts() {
       const canvas = document.getElementById('heartCanvas');
       for (let i = 0; i < 20; i++) {
@@ -688,7 +1064,6 @@
       }
     }
 
-    // Confetti burst
     function createConfetti(count = 30) {
       for (let i = 0; i < count; i++) {
         setTimeout(() => {
@@ -705,52 +1080,6 @@
       }
     }
 
-    // Click if you love me button
-    function showLoveMessage() {
-      createConfetti(50);
-      const popup = document.getElementById('messagePopup');
-      const overlay = document.getElementById('overlay');
-      const icon = document.getElementById('popupIcon');
-      const text = document.getElementById('popupText');
-      
-      icon.textContent = 'favorite';
-      text.textContent = 'I love you too, Grace! More than all the memories in this game... ❤️';
-      
-      popup.classList.remove('hidden');
-      overlay.classList.remove('hidden');
-      
-      // Show acceptance message
-      setTimeout(() => {
-        const acceptance = document.getElementById('acceptanceMessage');
-        const acceptanceText = document.getElementById('acceptanceText');
-        acceptanceText.textContent = 'My heart is yours forever. Every memory we create is a treasure. Every moment with you is a gift. You are my today, my tomorrow, and my always. I promise to fill your life with beautiful memories, endless love, and forever happiness. Will you be mine forever?';
-        acceptance.classList.remove('hidden');
-      }, 500);
-    }
-
-    // Open gift boxes
-    function openGift(giftNumber) {
-      createConfetti(20);
-      const popup = document.getElementById('messagePopup');
-      const overlay = document.getElementById('overlay');
-      const icon = document.getElementById('popupIcon');
-      const text = document.getElementById('popupText');
-      
-      const gifts = {
-        1: { icon: 'card_giftcard', text: 'Be Mine Forever - I choose you, today, tomorrow, and always. You are my forever person, my soulmate, my everything. Every memory with you is precious.' },
-        2: { icon: 'redeem', text: 'Endless Kisses - Every kiss I give you will be filled with passion, tenderness, and all the love in my heart. Each kiss creates a beautiful memory.' },
-        3: { icon: 'celebration', text: 'Forever Love - My love for you has no end. It grows stronger every day, deeper with every memory we create together.' },
-        4: { icon: 'spa', text: 'My Whole Heart - I give you my heart completely. Every beat whispers your name, every thought is filled with you.' }
-      };
-      
-      const gift = gifts[giftNumber];
-      icon.textContent = gift.icon;
-      text.textContent = gift.text;
-      
-      popup.classList.remove('hidden');
-      overlay.classList.remove('hidden');
-    }
-
     function closePopup() {
       document.getElementById('messagePopup').classList.add('hidden');
       document.getElementById('overlay').classList.add('hidden');
@@ -759,7 +1088,8 @@
     // Initialize everything
     window.onload = function() {
       initHearts();
-      initGame();
+      initMemoryGame();
+      initNameGame();
       createConfetti(20);
     };
   </script>
