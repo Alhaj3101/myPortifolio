@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
   <title>Grace, our beautiful love story ❤️</title>
-  <!-- Tailwind + Material Icons (primary) -->
+  <!-- Tailwind + Google Material Icons (CDN - works on GitHub Pages) -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0,1" />
+  <!-- Google Material Icons - reliable on GitHub Pages -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Romantic fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
@@ -35,7 +36,7 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* Floating icons background (Material Icons) */
+    /* Floating icons background */
     .icon-bg {
       position: fixed;
       top: 0;
@@ -52,6 +53,7 @@
       animation: floatIcon linear infinite;
       text-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
       font-size: 24px;
+      font-family: 'Material Icons';
     }
 
     @keyframes floatIcon {
@@ -135,12 +137,13 @@
       margin-bottom: 30px;
     }
 
-    /* Icon decorations (instead of emojis) */
+    /* Icon decorations */
     .icon-decor {
       position: absolute;
       color: white;
       font-size: 3rem;
       animation: iconWobble 3s infinite;
+      font-family: 'Material Icons';
     }
 
     @keyframes iconWobble {
@@ -168,7 +171,7 @@
       100% { transform: scaleY(1) translateY(0); opacity: 1; }
     }
 
-    /* I LOVE YOU explosion with icons */
+    /* I LOVE YOU explosion */
     .love-explosion {
       position: fixed;
       top: 50%;
@@ -180,7 +183,7 @@
 
     .love-particle {
       position: absolute;
-      font-family: 'Material Symbols Outlined';
+      font-family: 'Material Icons';
       font-size: 3rem;
       color: white;
       text-shadow: 0 0 30px #ff1493, 0 0 60px gold;
@@ -193,7 +196,7 @@
       100% { transform: scale(2) rotate(720deg) translate(var(--x), var(--y)); opacity: 0; }
     }
 
-    /* Love story cards */
+    /* Story card */
     .story-card {
       background: linear-gradient(135deg, #fff9f9, #fff0f5);
       border-radius: 24px;
@@ -209,9 +212,10 @@
       box-shadow: 0 25px 35px rgba(255, 20, 147, 0.25);
     }
 
-    /* Icon styles */
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    /* Material Icons styling */
+    .material-icons {
+      font-size: 24px;
+      vertical-align: middle;
     }
 
     .icon-heart { color: #ff1493; }
@@ -297,7 +301,7 @@
 </head>
 <body>
 
-  <!-- Floating icons background (all Material Icons) -->
+  <!-- Floating icons background -->
   <div class="icon-bg" id="iconCanvas"></div>
 
   <!-- Rose petals -->
@@ -311,11 +315,11 @@
       <div class="envelope-front text-center relative">
         <div class="envelope-flap" id="envelopeFlap"></div>
         
-        <!-- Icon decorations (instead of emoji hearts) -->
-        <span class="material-symbols-outlined icon-decor" style="top: 20px; left: 20px; font-size: 3rem;">favorite</span>
-        <span class="material-symbols-outlined icon-decor" style="bottom: 20px; right: 20px; font-size: 3rem;">heart_plus</span>
-        <span class="material-symbols-outlined icon-decor" style="top: 20px; right: 20px; font-size: 3rem;">ecg_heart</span>
-        <span class="material-symbols-outlined icon-decor" style="bottom: 20px; left: 20px; font-size: 3rem;">heart_check</span>
+        <!-- Icon decorations -->
+        <span class="material-icons icon-decor" style="top: 20px; left: 20px; font-size: 3rem;">favorite</span>
+        <span class="material-icons icon-decor" style="bottom: 20px; right: 20px; font-size: 3rem;">favorite</span>
+        <span class="material-icons icon-decor" style="top: 20px; right: 20px; font-size: 3rem;">favorite</span>
+        <span class="material-icons icon-decor" style="bottom: 20px; left: 20px; font-size: 3rem;">favorite</span>
         
         <!-- BIG OPEN ME TEXT -->
         <div class="open-text heart-beat">
@@ -327,15 +331,15 @@
         </div>
         
         <div class="flex justify-center gap-6 mt-6">
-          <span class="material-symbols-outlined text-5xl text-white float-1">mail</span>
-          <span class="material-symbols-outlined text-5xl text-white float-2">love_letter</span>
-          <span class="material-symbols-outlined text-5xl text-white float-3">local_florist</span>
+          <span class="material-icons text-5xl text-white float-1">mail</span>
+          <span class="material-icons text-5xl text-white float-2">favorite</span>
+          <span class="material-icons text-5xl text-white float-3">local_florist</span>
         </div>
         
         <p class="text-white mt-6 text-sm opacity-90 flex items-center justify-center gap-2">
-          <span class="material-symbols-outlined text-base">touch_app</span>
+          <span class="material-icons text-base">touch_app</span>
           tap gently, my love
-          <span class="material-symbols-outlined text-base">auto_awesome</span>
+          <span class="material-icons text-base">auto_awesome</span>
         </p>
       </div>
       
@@ -346,9 +350,9 @@
           
           <!-- Header with icons -->
           <div class="flex justify-center gap-4 mb-6">
-            <span class="material-symbols-outlined text-5xl icon-heart heart-beat">favorite</span>
-            <span class="material-symbols-outlined text-5xl icon-rose">rose</span>
-            <span class="material-symbols-outlined text-5xl icon-heart heart-beat">favorite</span>
+            <span class="material-icons text-5xl text-pink-600 heart-beat">favorite</span>
+            <span class="material-icons text-5xl text-pink-400">favorite</span>
+            <span class="material-icons text-5xl text-pink-600 heart-beat">favorite</span>
           </div>
           
           <h1 class="font-['Great_Vibes'] text-6xl text-red-600 mb-2">
@@ -359,97 +363,117 @@
             My Dearest Grace
           </h2>
           
-          <!-- Our Real Love Story (this will make her smile) -->
+          <!-- The Greatest Love Story in History - Adam & Eve -->
           <div class="story-card">
             <div class="flex items-center gap-3 mb-4">
-              <span class="material-symbols-outlined text-4xl icon-heart">history</span>
-              <h3 class="font-['Dancing_Script'] text-3xl text-pink-600">How We Met</h3>
+              <span class="material-icons text-4xl text-pink-600">spa</span>
+              <h3 class="font-['Dancing_Script'] text-3xl text-pink-600">The First Love: Adam & Eve</h3>
             </div>
             <p class="text-gray-700 leading-relaxed">
-              <span class="material-symbols-outlined text-sm align-middle">calendar_month</span> It was a sunny afternoon in Dar es Salaam. I was at a small café near the university, 
-              struggling with some code on my laptop. You walked in with your friends, laughing about something, 
-              and when you smiled at me while ordering coffee... my heart just stopped. ☕
+              <span class="material-icons text-sm align-middle text-pink-500">wb_sunny</span> In the beginning, in a beautiful garden called Eden, the very first love story began. 
+              Adam was alone until God created Eve from his rib. When Adam first saw her, his heart knew instantly 
+              that she was the one. He said, "This is now bone of my bones and flesh of my flesh." 
+              They walked together in the garden, shared every moment, and loved each other completely. 🌿
             </p>
             <p class="text-gray-700 mt-3 leading-relaxed">
-              <span class="material-symbols-outlined text-sm align-middle">chat</span> You asked me what I was working on, and I showed you my latest project. 
-              You actually seemed interested! We talked for hours about tech, life, and dreams. 
-              By the time the café closed, I knew I had found someone special.
+              <span class="material-icons text-sm align-middle text-pink-500">favorite</span> Their love was pure, innocent, and beautiful. They were the first to experience 
+              what it means to have a soulmate, to have someone who completes you. Even through every challenge, 
+              their love endured - because true love always finds a way.
             </p>
           </div>
 
+          <!-- The Lesson for Us -->
           <div class="story-card">
             <div class="flex items-center gap-3 mb-4">
-              <span class="material-symbols-outlined text-4xl icon-rose">celebration</span>
-              <h3 class="font-['Dancing_Script'] text-3xl text-pink-600">Our First Date</h3>
+              <span class="material-icons text-4xl text-pink-600">auto_stories</span>
+              <h3 class="font-['Dancing_Script'] text-3xl text-pink-600">Our Love Should Be Like That</h3>
             </div>
             <p class="text-gray-700 leading-relaxed">
-              <span class="material-symbols-outlined text-sm align-middle">beach_access</span> I took you to Coco Beach at sunset. You wore a beautiful blue dress that matched the ocean. 
-              We walked along the shore, collected seashells, and you told me about your dream to become a 
-              successful businesswoman. The way your eyes sparkled when you talked about your dreams... 
-              I knew I wanted to be part of your journey. 🌅
+              <span class="material-icons text-sm align-middle text-pink-500">stars</span> My beautiful Grace, just like Adam and Eve, we have been given a precious gift - each other. 
+              Their story teaches us that true love is:
+            </p>
+            <div class="grid grid-cols-2 gap-2 mt-3">
+              <div class="flex items-center gap-1 bg-pink-50 p-2 rounded-lg">
+                <span class="material-icons text-pink-500">handshake</span>
+                <span class="text-sm">Pure & True</span>
+              </div>
+              <div class="flex items-center gap-1 bg-pink-50 p-2 rounded-lg">
+                <span class="material-icons text-pink-500">favorite</span>
+                <span class="text-sm">Selfless</span>
+              </div>
+              <div class="flex items-center gap-1 bg-pink-50 p-2 rounded-lg">
+                <span class="material-icons text-pink-500">diversity_3</span>
+                <span class="text-sm">Together</span>
+              </div>
+              <div class="flex items-center gap-1 bg-pink-50 p-2 rounded-lg">
+                <span class="material-icons text-pink-500">infinity</span>
+                <span class="text-sm">Forever</span>
+              </div>
+            </div>
+            <p class="text-gray-700 mt-4 italic">
+              "Just as Eve was made for Adam, I believe you were made for me. 
+              Just as Adam loved Eve with his whole heart, I love you with every part of my soul."
             </p>
           </div>
 
+          <!-- Our Promise -->
           <div class="story-card">
             <div class="flex items-center gap-3 mb-4">
-              <span class="material-symbols-outlined text-4xl icon-heart">volunteer_activism</span>
-              <h3 class="font-['Dancing_Script'] text-3xl text-pink-600">The Moment I Knew</h3>
+              <span class="material-icons text-4xl text-pink-600">celebration</span>
+              <h3 class="font-['Dancing_Script'] text-3xl text-pink-600">Let's Create Our Own Garden</h3>
             </div>
             <p class="text-gray-700 leading-relaxed">
-              <span class="material-symbols-outlined text-sm align-middle">rainy</span> It was raining heavily one evening, and you called me because you were stuck at a bus stop. 
-              I ran through the rain to bring you an umbrella. When I got there, soaking wet, you laughed and said 
-              "You're crazy!" But then you hugged me so tight, and whispered "Thank you for always being there." 
-              Right there, in the rain, I knew you were the one. 🌧️☔
+              <span class="material-icons text-sm align-middle text-pink-500">park</span> Grace, let's build a love as beautiful as the Garden of Eden. 
+              A love where we walk together through every season, where we support each other, 
+              where we grow together like the most beautiful flowers. A love that will be talked about 
+              for generations - our own perfect love story.
             </p>
+            <div class="flex justify-center gap-4 mt-4">
+              <span class="material-icons text-3xl text-pink-400 float-1">favorite</span>
+              <span class="material-icons text-3xl text-pink-500 float-2">favorite</span>
+              <span class="material-icons text-3xl text-pink-600 float-3">favorite</span>
+            </div>
           </div>
           
-          <!-- Romantic divider with icons -->
+          <!-- Romantic divider -->
           <div class="divider">
-            <span class="material-symbols-outlined text-pink-400">stars</span>
+            <span class="material-icons text-pink-400">stars</span>
             <div class="divider-line"></div>
-            <span class="material-symbols-outlined text-pink-400">favorite</span>
+            <span class="material-icons text-pink-400">favorite</span>
             <div class="divider-line"></div>
-            <span class="material-symbols-outlined text-pink-400">stars</span>
+            <span class="material-icons text-pink-400">stars</span>
           </div>
           
-          <!-- Why I love you with icons -->
-          <h3 class="font-['Dancing_Script'] text-3xl text-pink-600 mb-4">Why You're Special</h3>
+          <!-- Why You're My Eve -->
+          <h3 class="font-['Dancing_Script'] text-3xl text-pink-600 mb-4">Why You're My Perfect Match</h3>
           
           <div class="grid grid-cols-2 gap-3 mb-6">
             <div class="message-card flex items-center gap-2">
-              <span class="material-symbols-outlined icon-heart">sentiment_satisfied</span>
+              <span class="material-icons text-pink-500">sentiment_satisfied</span>
               <span class="text-sm">Your beautiful smile</span>
             </div>
             <div class="message-card flex items-center gap-2">
-              <span class="material-symbols-outlined icon-rose">elderly_woman</span>
+              <span class="material-icons text-pink-500">favorite</span>
               <span class="text-sm">Your kind heart</span>
             </div>
             <div class="message-card flex items-center gap-2">
-              <span class="material-symbols-outlined icon-heart">humerus</span>
-              <span class="text-sm">Your sense of humor</span>
-            </div>
-            <div class="message-card flex items-center gap-2">
-              <span class="material-symbols-outlined icon-rose">psychology</span>
+              <span class="material-icons text-pink-500">psychology</span>
               <span class="text-sm">Your beautiful mind</span>
             </div>
             <div class="message-card flex items-center gap-2">
-              <span class="material-symbols-outlined icon-heart">diversity_3</span>
-              <span class="text-sm">Your caring nature</span>
-            </div>
-            <div class="message-card flex items-center gap-2">
-              <span class="material-symbols-outlined icon-rose">spa</span>
-              <span class="text-sm">Your beautiful soul</span>
+              <span class="material-icons text-pink-500">diversity_3</span>
+              <span class="text-sm">Your caring soul</span>
             </div>
           </div>
           
           <!-- Love letter message -->
           <div class="bg-pink-50 p-6 rounded-3xl border-2 border-pink-200 my-6">
-            <span class="material-symbols-outlined text-4xl icon-heart block mb-2">love_letter</span>
+            <span class="material-icons text-4xl text-pink-500 block mb-2">mail</span>
             <p class="italic text-gray-700 text-lg">
-              "Grace, you are the most beautiful thing that has ever happened to me. 
-              Every day with you feels like a gift, every moment a treasure. 
-              I love you more than all the stars in the sky, more than all the 
-              roses in the world, more than words can ever say."
+              "My dearest Grace, just as Eve was created for Adam, I believe with all my heart 
+              that you were created for me. Let's write our own beautiful love story - one filled 
+              with laughter, tears of joy, and endless love. I want to spend the rest of my life 
+              making you as happy as Adam made Eve."
             </p>
           </div>
           
@@ -458,26 +482,26 @@
             <p class="text-red-500 font-bold text-xl mb-3">I Promise To:</p>
             <div class="flex flex-wrap justify-center gap-3">
               <span class="bg-pink-100 px-4 py-2 rounded-full text-sm flex items-center gap-1">
-                <span class="material-symbols-outlined text-pink-500 text-base">favorite</span> Love you forever
+                <span class="material-icons text-pink-500 text-base">favorite</span> Love you forever
               </span>
               <span class="bg-pink-100 px-4 py-2 rounded-full text-sm flex items-center gap-1">
-                <span class="material-symbols-outlined text-pink-500 text-base">lock</span> Be faithful
+                <span class="material-icons text-pink-500 text-base">lock</span> Be faithful
               </span>
               <span class="bg-pink-100 px-4 py-2 rounded-full text-sm flex items-center gap-1">
-                <span class="material-symbols-outlined text-pink-500 text-base">hug</span> Always hug you
+                <span class="material-icons text-pink-500 text-base">hug</span> Always hug you
               </span>
               <span class="bg-pink-100 px-4 py-2 rounded-full text-sm flex items-center gap-1">
-                <span class="material-symbols-outlined text-pink-500 text-base">celebration</span> Make you smile
+                <span class="material-icons text-pink-500 text-base">celebration</span> Make you smile
               </span>
             </div>
           </div>
           
-          <!-- Love meter with icon -->
+          <!-- Love meter -->
           <div class="mt-8">
             <div class="flex items-center justify-center gap-2">
-              <span class="material-symbols-outlined text-3xl icon-heart">favorite</span>
+              <span class="material-icons text-3xl text-pink-500">favorite</span>
               <span class="text-pink-600 font-medium">My love for you is</span>
-              <span class="material-symbols-outlined text-3xl icon-heart">favorite</span>
+              <span class="material-icons text-3xl text-pink-500">favorite</span>
             </div>
             <div class="love-meter mt-3">
               <div class="love-fill" style="width: 100%;"></div>
@@ -485,18 +509,18 @@
             <p class="text-2xl font-['Great_Vibes'] text-red-600 mt-2">Infinite ♾️</p>
           </div>
           
-          <!-- Signature with icons -->
+          <!-- Signature -->
           <div class="mt-10 pt-6 border-t-2 border-pink-200">
             <div class="flex justify-center gap-2 mb-3">
-              <span class="material-symbols-outlined icon-heart">signature</span>
-              <span class="material-symbols-outlined icon-rose">signature</span>
+              <span class="material-icons text-pink-500">edit</span>
+              <span class="material-icons text-pink-400">favorite</span>
             </div>
             <p class="font-['Great_Vibes'] text-4xl text-red-600">Forever yours,</p>
             <p class="font-['Dancing_Script'] text-5xl text-pink-500 mt-2">Alhaj ❤️</p>
             <div class="flex justify-center gap-2 mt-4">
-              <span class="material-symbols-outlined text-pink-400">calendar_month</span>
-              <span class="text-sm text-gray-500">The day I met you - the best day of my life</span>
-              <span class="material-symbols-outlined text-pink-400">celebration</span>
+              <span class="material-icons text-pink-400">calendar_month</span>
+              <span class="text-sm text-gray-500">Let's write our own love story</span>
+              <span class="material-icons text-pink-400">favorite</span>
             </div>
           </div>
         </div>
@@ -506,10 +530,10 @@
 
   <!-- Love message popup -->
   <div id="lovePopup" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white/95 backdrop-blur-lg p-8 rounded-3xl shadow-2xl z-50 max-w-sm w-full text-center hidden border-2 border-pink-300">
-    <span id="popupIcon" class="material-symbols-outlined text-7xl icon-heart block mb-4 heart-beat">favorite</span>
+    <span id="popupIcon" class="material-icons text-7xl text-pink-500 block mb-4 heart-beat">favorite</span>
     <p id="popupText" class="text-xl text-pink-600 font-['Dancing_Script'] mb-4"></p>
     <button onclick="closePopup()" class="bg-pink-500 text-white px-6 py-2 rounded-full w-full pulse-glow flex items-center justify-center gap-2">
-      <span class="material-symbols-outlined">close</span> Close
+      <span class="material-icons">close</span> Close
     </button>
   </div>
   <div id="overlay" class="fixed inset-0 bg-black/30 backdrop-blur-sm z-40 hidden" onclick="closePopup()"></div>
@@ -524,24 +548,20 @@
   </style>
 
   <script>
-    // Floating icons generator (Material Icons only)
+    // Floating icons generator (Material Icons - works on GitHub Pages)
     function initIcons() {
       const canvas = document.getElementById('iconCanvas');
-      const icons = [
-        'favorite', 'heart_plus', 'ecg_heart', 'heart_check', 'love_letter', 
-        'local_florist', 'rose', 'celebration', 'volunteer_activism', 'spa',
-        'diversity_3', 'hug', 'waving_hand', 'kiss', 'stars'
-      ];
+      const icons = ['favorite', 'favorite', 'favorite', 'favorite', 'favorite', 'favorite', 'favorite', 'favorite', 'favorite'];
       
-      for (let i = 0; i < 40; i++) {
+      for (let i = 0; i < 30; i++) {
         const icon = document.createElement('span');
-        icon.className = 'material-symbols-outlined floating-icon';
+        icon.className = 'material-icons floating-icon';
         icon.textContent = icons[Math.floor(Math.random() * icons.length)];
         icon.style.left = Math.random() * 100 + '%';
         icon.style.animationDuration = (Math.random() * 10 + 8) + 's';
         icon.style.animationDelay = Math.random() * 5 + 's';
         icon.style.fontSize = (Math.random() * 25 + 15) + 'px';
-        icon.style.opacity = 0.6;
+        icon.style.opacity = 0.4;
         canvas.appendChild(icon);
       }
     }
@@ -560,21 +580,20 @@
       }
     }
 
-    // I LOVE YOU explosion with icons
+    // I LOVE YOU explosion
     function createLoveExplosion() {
       const explosionContainer = document.createElement('div');
       explosionContainer.className = 'love-explosion';
       document.body.appendChild(explosionContainer);
       
-      const icons = ['favorite', 'heart_plus', 'ecg_heart', 'love_letter', 'rose', 'celebration', 'stars', 'volunteer_activism'];
-      const colors = ['#ff1493', '#ff69b4', '#c71585', '#db7093', '#ffb6c1'];
+      const icons = ['favorite', 'favorite', 'favorite', 'favorite', 'favorite'];
       
       for (let i = 0; i < 40; i++) {
         setTimeout(() => {
           const particle = document.createElement('span');
-          particle.className = 'material-symbols-outlined love-particle';
-          particle.textContent = icons[Math.floor(Math.random() * icons.length)];
-          particle.style.color = colors[Math.floor(Math.random() * colors.length)];
+          particle.className = 'material-icons love-particle';
+          particle.textContent = 'favorite';
+          particle.style.color = '#ff1493';
           particle.style.setProperty('--x', (Math.random() * 500 - 250) + 'px');
           particle.style.setProperty('--y', (Math.random() * 500 - 250) + 'px');
           particle.style.left = '50%';
@@ -633,12 +652,11 @@
           createLoveExplosion();
           createConfettiBurst();
           setTimeout(createConfettiBurst, 300);
-          setTimeout(createConfettiBurst, 600);
           
           // Show popup messages
           setTimeout(() => showLoveMessage('welcome'), 800);
-          setTimeout(() => showLoveMessage('grace'), 2000);
-          setTimeout(() => showLoveMessage('story'), 3200);
+          setTimeout(() => showLoveMessage('eve'), 2000);
+          setTimeout(() => showLoveMessage('forever'), 3200);
           
           letterContent.scrollIntoView({ behavior: 'smooth', block: 'center' });
           
@@ -654,13 +672,12 @@
       const text = document.getElementById('popupText');
       
       const messages = {
-        'welcome': { icon: 'heart_check', text: 'Welcome my love! You opened my heart!' },
-        'grace': { icon: 'crown', text: 'Grace, you are the queen of my heart!' },
-        'story': { icon: 'auto_stories', text: 'Our story is my favorite story ever!' },
-        'love': { icon: 'favorite', text: 'I LOVE YOU more than anything!' }
+        'welcome': { icon: 'favorite', text: 'Welcome my love! You opened my heart!' },
+        'eve': { icon: 'spa', text: 'You are my Eve, my perfect match!' },
+        'forever': { icon: 'infinity', text: 'Let\'s create our own Eden together!' }
       };
       
-      const msg = messages[type] || messages['love'];
+      const msg = messages[type] || messages['welcome'];
       icon.textContent = msg.icon;
       text.textContent = msg.text;
       
