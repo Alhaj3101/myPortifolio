@@ -2,1096 +2,603 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-  <title>Grace · our love world 💕</title>
-  <!-- Tailwind + Material Icons -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Romantic fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for grace • always here</title>
+  <!-- Font Awesome 6 (free icons, no emojis) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
+      font-family: 'Segoe UI', 'Roboto', system-ui, sans-serif;
     }
 
     body {
-      font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(-45deg, #8B0000, #C71585, #DB7093, #FFB6C1, #FF69B4);
-      background-size: 400% 400%;
-      animation: gradientBG 20s ease infinite;
+      background: linear-gradient(145deg, #f9eef7 0%, #fad9e6 100%);
       min-height: 100vh;
-      position: relative;
-      overflow-x: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
     }
 
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* Floating hearts background */
-    .heart-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
+    /* main book/card container */
+    .book {
+      max-width: 1100px;
       width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
+      background: rgba(255, 250, 245, 0.7);
+      backdrop-filter: blur(8px);
+      border-radius: 3.5rem 3.5rem 2.5rem 2.5rem;
+      box-shadow: 0 30px 50px rgba(180, 70, 120, 0.25),
+                  inset 2px 2px 5px rgba(255, 255, 255, 0.8),
+                  inset -6px -6px 12px rgba(160, 100, 130, 0.1);
+      padding: 2rem 1.5rem 2.5rem 1.5rem;
+      transition: all 0.3s ease;
     }
 
-    .floating-icon {
-      position: absolute;
-      color: rgba(255, 255, 255, 0.5);
-      animation: floatHeart linear infinite;
-      font-size: 24px;
-      font-family: 'Material Icons';
-    }
-
-    @keyframes floatHeart {
-      0% { transform: translateY(100vh) scale(0.3) rotate(0deg); opacity: 0; }
-      20% { opacity: 0.7; }
-      80% { opacity: 0.7; }
-      100% { transform: translateY(-20vh) scale(1.2) rotate(360deg); opacity: 0; }
-    }
-
-    /* Main card */
-    .love-card {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-radius: 48px;
-      padding: 30px 20px;
-      box-shadow: 0 30px 60px rgba(199, 21, 133, 0.4);
-      border: 3px solid white;
-      max-width: 550px;
-      margin: 20px auto;
-      position: relative;
-      z-index: 10;
-    }
-
-    /* Navigation Tabs */
-    .nav-tabs {
+    /* navigation tabs (3 pages) */
+    .page-nav {
       display: flex;
       justify-content: center;
-      gap: 10px;
-      margin-bottom: 25px;
+      gap: 1.2rem;
+      margin-bottom: 2.2rem;
       flex-wrap: wrap;
     }
 
-    .nav-tab {
-      background: rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(5px);
-      padding: 12px 20px;
-      border-radius: 50px;
-      cursor: pointer;
-      font-weight: 600;
-      color: white;
-      transition: all 0.3s;
-      border: 2px solid transparent;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 1rem;
-    }
-
-    .nav-tab.active {
-      background: #ff1493;
-      border-color: white;
-      transform: scale(1.05);
-      box-shadow: 0 10px 20px rgba(255, 20, 147, 0.4);
-    }
-
-    .nav-tab:hover {
-      background: #ff69b4;
-      transform: translateY(-2px);
-    }
-
-    /* Sections */
-    .section {
-      display: none;
-      animation: fadeIn 0.5s ease;
-    }
-
-    .section.active {
-      display: block;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Click if you love me button */
-    .love-button {
-      background: linear-gradient(45deg, #ff1493, #ff69b4, #ff1493);
-      background-size: 200% 200%;
-      animation: gradientMove 3s ease infinite;
+    .page-btn {
+      background: transparent;
       border: none;
-      padding: 15px 30px;
-      font-size: 1.8rem;
-      font-family: 'Great Vibes', cursive;
-      color: white;
+      font-size: 1.5rem;
+      font-weight: 500;
+      padding: 0.7rem 1.8rem;
       border-radius: 60px;
+      color: #a65e7e;
       cursor: pointer;
-      box-shadow: 0 10px 30px rgba(255, 20, 147, 0.5);
-      transition: all 0.3s;
-      border: 3px solid white;
-      width: 100%;
-      margin: 15px 0;
-    }
-
-    .love-button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 20px 40px rgba(255, 20, 147, 0.8);
-    }
-
-    @keyframes gradientMove {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* Gift boxes grid */
-    .gift-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-      margin: 20px 0;
-    }
-
-    .gift-box {
-      background: linear-gradient(145deg, #fff0f5, #ffe4e1);
-      border-radius: 30px;
-      padding: 20px 10px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.3s;
-      border: 3px solid white;
-      box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .gift-box::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
-      animation: shine 3s infinite;
-    }
-
-    @keyframes shine {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .gift-box:hover {
-      transform: translateY(-8px) scale(1.03);
-      box-shadow: 0 20px 30px rgba(255, 20, 147, 0.5);
-    }
-
-    .gift-icon {
-      font-size: 3rem;
-      color: #ff1493;
-      margin-bottom: 8px;
-    }
-
-    .gift-text {
-      font-family: 'Dancing Script', cursive;
-      font-size: 1.3rem;
-      color: #c71585;
-      font-weight: bold;
-    }
-
-    /* Game sections */
-    .game-section {
-      background: rgba(255, 240, 245, 0.9);
-      border-radius: 40px;
-      padding: 25px 15px;
-      margin: 25px 0;
-      border: 3px solid #ff69b4;
-      box-shadow: 0 10px 30px rgba(255, 20, 147, 0.2);
-    }
-
-    .game-title {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.5rem;
-      color: #c71585;
-      text-align: center;
-      margin-bottom: 10px;
-    }
-
-    .game-stats {
-      display: flex;
-      justify-content: space-between;
-      background: white;
-      padding: 12px 20px;
-      border-radius: 50px;
-      margin-bottom: 20px;
-      border: 2px solid #ffb6c1;
-    }
-
-    /* Memory Match Grid */
-    .memory-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin: 20px 0;
-    }
-
-    .memory-card {
-      aspect-ratio: 1;
-      background: linear-gradient(145deg, #ff69b4, #ff1493);
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.4s;
-      transform-style: preserve-3d;
-      position: relative;
-      box-shadow: 0 8px 15px rgba(199, 21, 133, 0.3);
-    }
-
-    .memory-card.flipped {
-      background: white;
-      transform: rotateY(180deg);
-    }
-
-    .memory-card.matched {
-      background: #d4edda;
-      cursor: default;
-      opacity: 0.8;
-      transform: scale(0.95);
-      border: 2px solid #28a745;
-    }
-
-    .memory-card .front,
-    .memory-card .back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 20px;
-    }
-
-    .memory-card .front {
-      background: linear-gradient(145deg, #ff69b4, #ff1493);
-      color: white;
-      transform: rotateY(0deg);
-    }
-
-    .memory-card .back {
-      background: white;
-      transform: rotateY(180deg);
-      font-size: 2rem;
-    }
-
-    .memory-card.flipped .front {
-      transform: rotateY(180deg);
-    }
-
-    .memory-card.flipped .back {
-      transform: rotateY(0deg);
-    }
-
-    .memory-card.matched .back {
-      background: #d4edda;
-    }
-
-    /* Name Match Game specific */
-    .name-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin: 20px 0;
-    }
-
-    .letter-card {
-      aspect-ratio: 1;
-      background: linear-gradient(145deg, #ff69b4, #ff1493);
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.4s;
-      transform-style: preserve-3d;
-      position: relative;
-      box-shadow: 0 8px 15px rgba(199, 21, 133, 0.3);
-      font-size: 2rem;
-      font-weight: bold;
-      color: white;
-    }
-
-    .letter-card.flipped {
-      background: white;
-      color: #ff1493;
-      transform: rotateY(180deg);
-    }
-
-    .letter-card.matched {
-      background: #d4edda;
-      cursor: default;
-      opacity: 0.8;
-      transform: scale(0.95);
-      border: 2px solid #28a745;
-      color: #28a745;
-    }
-
-    .letter-card .front,
-    .letter-card .back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 20px;
-    }
-
-    .letter-card .front {
-      background: linear-gradient(145deg, #ff69b4, #ff1493);
-      color: white;
-      transform: rotateY(0deg);
-    }
-
-    .letter-card .back {
-      background: white;
-      color: #ff1493;
-      transform: rotateY(180deg);
-      font-size: 2rem;
-      font-weight: bold;
-    }
-
-    .letter-card.flipped .front {
-      transform: rotateY(180deg);
-    }
-
-    .letter-card.flipped .back {
-      transform: rotateY(0deg);
-    }
-
-    .love-percentage {
-      font-size: 3rem;
-      font-family: 'Great Vibes', cursive;
-      color: #ff1493;
-      text-align: center;
-      margin: 20px 0;
-      animation: pulse 2s infinite;
-    }
-
-    .progress-bar {
-      width: 100%;
-      height: 30px;
-      background: #ffe4e1;
-      border-radius: 50px;
-      overflow: hidden;
-      margin: 20px 0;
-      border: 2px solid white;
-    }
-
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, #ff69b4, #ff1493);
-      transition: width 0.5s;
-      width: 0%;
-    }
-
-    /* Message popup */
-    .message-popup {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: white;
-      padding: 30px;
-      border-radius: 50px;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.3);
-      z-index: 1000;
-      max-width: 350px;
-      width: 90%;
-      text-align: center;
-      border: 5px solid #ffb6c1;
-    }
-
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: 999;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    /* Pulse animation */
-    .pulse {
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-
-    /* Confetti */
-    .confetti {
-      position: fixed;
-      width: 10px;
-      height: 10px;
-      background: #ff69b4;
-      top: -10px;
-      animation: confettiFall 3s linear forwards;
-      z-index: 2000;
-    }
-
-    @keyframes confettiFall {
-      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-    }
-
-    .heart-beat {
-      animation: heartBeat 1.4s ease-in-out infinite;
-    }
-    @keyframes heartBeat {
-      0% { transform: scale(1); }
-      14% { transform: scale(1.2); }
-      28% { transform: scale(1); }
-      42% { transform: scale(1.2); }
-      70% { transform: scale(1); }
-    }
-
-    .reset-button {
-      background: #ff1493;
-      color: white;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 50px;
-      cursor: pointer;
-      font-size: 1.1rem;
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      margin: 10px 0;
+      box-shadow: 0 4px 10px rgba(200, 120, 150, 0.2);
+      transition: 0.2s;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 220, 240, 0.9);
+    }
+
+    .page-btn i {
+      font-size: 1.4rem;
+      color: #ce7ca0;
+    }
+
+    .page-btn.active {
+      background: #ffd9e8;
+      color: #911f56;
+      border-color: #ffb3c6;
+      box-shadow: 0 10px 18px #fba9c4;
+      transform: scale(1.02);
+    }
+
+    .page-btn:hover:not(.active) {
+      background: #ffeef4;
+      transform: translateY(-3px);
+    }
+
+    /* dynamic pages container */
+    .pages-container {
+      position: relative;
+      min-height: 440px;
+    }
+
+    .page {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      padding: 1.8rem 2rem;
+      border-radius: 2.2rem;
+      background: rgba(255, 245, 250, 0.7);
+      backdrop-filter: blur(4px);
+      box-shadow: inset 0 1px 5px rgba(255, 255, 255, 0.9), 0 15px 25px rgba(170, 120, 140, 0.25);
+      border: 1px solid #ffeef4;
+    }
+
+    .page.active-page {
+      display: block;
+      opacity: 1;
+      animation: floatIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    @keyframes floatIn {
+      0% { transform: translateY(15px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    /* romantic typography */
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: #632e4a;
+      margin-bottom: 1rem;
+      border-left: 7px solid #f69abf;
+      padding-left: 1.3rem;
+    }
+
+    h2 i {
+      color: #c44573;
+      margin-right: 0.8rem;
+    }
+
+    .love-message {
+      font-size: 1.3rem;
+      line-height: 1.7;
+      color: #3d2537;
+      margin: 1.4rem 0 1rem 0;
+      background: rgba(255, 215, 235, 0.3);
+      padding: 1.5rem;
+      border-radius: 3rem 1rem 3rem 1rem;
+      box-shadow: inset 0 -2px 5px #ffe2f0;
+    }
+
+    /* interactive cards / special zones */
+    .whisper-zone {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      margin: 2.2rem 0 0.5rem;
+    }
+
+    .comfort-card {
+      background: #ffe2ed;
+      padding: 1.8rem 1.2rem;
+      border-radius: 3rem 1rem 3rem 1rem;
+      flex: 1 1 200px;
+      text-align: center;
+      transition: all 0.3s;
+      border: 2px dashed #ffb0cc;
+      cursor: pointer;
+    }
+
+    .comfort-card i {
+      font-size: 2.8rem;
+      color: #b34370;
+      margin-bottom: 1rem;
+      transition: 0.2s;
+    }
+
+    .comfort-card span {
+      display: block;
+      font-size: 1.2rem;
+      color: #4f2b3f;
+    }
+
+    .comfort-card:hover {
+      background: #ffeef5;
+      transform: scale(1.02) rotate(0.5deg);
+      border: 2px solid #f873a5;
+    }
+
+    .comfort-card:active i {
+      transform: scale(1.2);
+      color: #ed5e9a;
+    }
+
+    /* laughter / hunger section */
+    .hunger-laugh-area {
+      background: #fbc1d5;
+      border-radius: 4rem 4rem 2rem 2rem;
+      padding: 2rem 1.5rem;
+      margin-top: 2rem;
+      text-align: center;
+      box-shadow: 0 12px 0 #b25f83, 0 15px 25px #f1a3c0;
+    }
+
+    .laugh-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .hungry-btn {
+      background: #fef5f8;
+      border: 3px solid #b34370;
+      border-radius: 60px;
+      padding: 0.8rem 2.5rem;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #a13560;
+      display: inline-flex;
+      align-items: center;
+      gap: 15px;
+      cursor: pointer;
+      transition: 0.15s;
+      box-shadow: 0 7px 0 #732a4b;
+    }
+
+    .hungry-btn:active {
+      transform: translateY(5px);
+      box-shadow: 0 2px 0 #732a4b;
+    }
+
+    .laugh-feedback {
+      font-size: 2rem;
+      font-weight: 400;
+      color: #2d1426;
+      background: #fff2f9;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      min-width: 200px;
       border: 2px solid white;
     }
 
-    .reset-button:hover {
-      background: #c71585;
-      transform: scale(1.05);
+    .laugh-feedback i {
+      margin: 0 0.3rem;
+      color: #c94f7c;
+    }
+
+    /* animated company section */
+    .company-grace {
+      background: #eed2e0;
+      border-radius: 2.5rem;
+      margin: 1.5rem 0;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .companion-cat {
+      display: flex;
+      gap: 2.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .companion-item {
+      animation: bounce 2.2s infinite ease-in-out;
+      transform-origin: center;
+      font-size: 1.8rem;
+      background: rgba(255, 255, 255, 0.5);
+      padding: 1rem 2rem;
+      border-radius: 90px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .companion-item i {
+      font-size: 2.5rem;
+      color: #a53860;
+    }
+
+    @keyframes bounce {
+      0%,100%{ transform: translateY(0); }
+      50%{ transform: translateY(-12px); }
+    }
+
+    /* page 2 extra interactive */
+    .page-2-love {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin: 1.8rem 0;
+    }
+
+    .reason {
+      background: #ffdeec;
+      border-radius: 35px 10px 35px 10px;
+      padding: 1.5rem 0.5rem;
+      text-align: center;
+      font-size: 1.2rem;
+      transition: 0.2s;
+      border: 1px solid white;
+    }
+
+    .reason i {
+      font-size: 2.2rem;
+      color: #b63e6d;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .reason:hover {
+      background: #fec7df;
+      rotate: 0.5deg;
+      scale: 1.02;
+    }
+
+    /* page 3: poem & floating things */
+    .floating-icons {
+      display: flex;
+      justify-content: space-around;
+      margin: 2.5rem 0 1rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .floating-icons i {
+      font-size: 2.8rem;
+      color: #a74974;
+      filter: drop-shadow(0 8px 8px #fcaecf);
+      animation: drift 3s infinite alternate;
+    }
+
+    @keyframes drift {
+      0% { transform: translateY(0px) rotate(0deg); }
+      100% { transform: translateY(-18px) rotate(5deg); }
+    }
+
+    /* extra micro-interactions */
+    .signature {
+      margin-top: 2rem;
+      text-align: right;
+      font-size: 1.4rem;
+      font-style: italic;
+      color: #734b62;
+      border-top: 2px dotted #d989b1;
+      padding-top: 1rem;
+    }
+
+    .signature i {
+      margin: 0 5px;
+    }
+
+    /* responsiveness */
+    @media (max-width: 600px) {
+      .book { padding: 1rem; }
+      h2 { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
+  <div class="book">
+    <!-- 3 page tabs -->
+    <div class="page-nav">
+      <button class="page-btn active" id="tab1"><i class="fas fa-heart"></i> forever</button>
+      <button class="page-btn" id="tab2"><i class="fas fa-feather-alt"></i> yours</button>
+      <button class="page-btn" id="tab3"><i class="fas fa-infinity"></i> always</button>
+    </div>
 
-  <!-- Floating hearts background -->
-  <div class="heart-bg" id="heartCanvas"></div>
-
-  <!-- Main content -->
-  <div class="min-h-screen flex items-center justify-center p-3">
-    <div class="love-card">
-      
-      <!-- Header with name -->
-      <div class="text-center mb-4">
-        <span class="material-icons text-4xl text-pink-600 heart-beat">favorite</span>
-        <h1 class="font-['Great_Vibes'] text-4xl text-red-600 mt-1">My Dearest Grace</h1>
-        <p class="text-gray-600 text-sm">Everything I made with love for you...</p>
-      </div>
-
-      <!-- Navigation Tabs -->
-      <div class="nav-tabs">
-        <div class="nav-tab active" onclick="switchSection('love')">
-          <span class="material-icons">favorite</span> Love
+    <!-- pages container -->
+    <div class="pages-container">
+      <!-- page 1 – comfort & company when lonely -->
+      <div class="page active-page" id="page1">
+        <h2><i class="fas fa-couch"></i> when you feel lonely, grace</h2>
+        <div class="love-message">
+          <i class="fas fa-quote-left" style="opacity:0.5;"></i> 
+          I am only a click away. My heart sits beside yours, even on the quietest nights.
         </div>
-        <div class="nav-tab" onclick="switchSection('gifts')">
-          <span class="material-icons">card_giftcard</span> Gifts
-        </div>
-        <div class="nav-tab" onclick="switchSection('memory')">
-          <span class="material-icons">memory</span> Memories
-        </div>
-        <div class="nav-tab" onclick="switchSection('namegame')">
-          <span class="material-icons">abc</span> Name Game
-        </div>
-      </div>
-
-      <!-- LOVE Section -->
-      <div id="loveSection" class="section active">
-        <!-- Click if you love me button -->
-        <button onclick="showLoveMessage()" class="love-button pulse" id="loveButton">
-          ❤️ Click if you love me ❤️
-        </button>
-
-        <!-- Acceptance message (hidden initially) -->
-        <div id="acceptanceMessage" class="hidden text-center mt-4 p-5 bg-pink-50 rounded-3xl border-3 border-pink-300">
-          <span class="material-icons text-4xl text-pink-600">favorite</span>
-          <h3 class="font-['Great_Vibes'] text-2xl text-red-600 mt-1">You said YES!</h3>
-          <p class="text-gray-700 text-sm mt-2 leading-relaxed" id="acceptanceText"></p>
-        </div>
-      </div>
-
-      <!-- GIFTS Section -->
-      <div id="giftsSection" class="section">
-        <h2 class="font-['Dancing_Script'] text-2xl text-pink-600 text-center mb-3">
-          Choose a gift, my love 🎁
-        </h2>
         
-        <div class="gift-grid">
-          <div class="gift-box" onclick="openGift(1)">
-            <span class="material-icons gift-icon">card_giftcard</span>
-            <span class="gift-text">Be Mine Forever</span>
+        <!-- interactive company zone (loneliness comfort) -->
+        <div class="company-grace">
+          <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+            <i class="fas fa-star" style="color:#cc7b9e;"></i>
+            <span style="font-weight:600;">lean on me — i'm here</span>
+            <i class="fas fa-star" style="color:#cc7b9e;"></i>
           </div>
-          <div class="gift-box" onclick="openGift(2)">
-            <span class="material-icons gift-icon">redeem</span>
-            <span class="gift-text">Endless Kisses</span>
+          <div class="companion-cat">
+            <div class="companion-item" title="i'm with you">
+              <i class="fas fa-cloud-moon"></i> <span>moon whispers</span>
+            </div>
+            <div class="companion-item" title="hold my hand virtually">
+              <i class="fas fa-hand-holding-heart"></i> <span>always close</span>
+            </div>
+            <div class="companion-item" title="soft thoughts">
+              <i class="fas fa-feather"></i> <span>grace's glow</span>
+            </div>
           </div>
-          <div class="gift-box" onclick="openGift(3)">
-            <span class="material-icons gift-icon">celebration</span>
-            <span class="gift-text">Forever Love</span>
+        </div>
+
+        <!-- whisper cards (interactive) -->
+        <div class="whisper-zone">
+          <div class="comfort-card" id="comfort1">
+            <i class="fas fa-music"></i>
+            <span>our melody</span>
           </div>
-          <div class="gift-box" onclick="openGift(4)">
-            <span class="material-icons gift-icon">spa</span>
-            <span class="gift-text">My Whole Heart</span>
+          <div class="comfort-card" id="comfort2">
+            <i class="fas fa-cat"></i>
+            <span>tiny dream</span>
+          </div>
+          <div class="comfort-card" id="comfort3">
+            <i class="fas fa-book-open"></i>
+            <span>love note</span>
+          </div>
+        </div>
+
+        <!-- laughter & hunger section (makes her laugh when hungry) -->
+        <div class="hunger-laugh-area">
+          <div style="font-size: 1.7rem; margin-bottom: 0.5rem;"><i class="fas fa-pizza-slice"></i> hungry? let's laugh <i class="fas fa-laugh-squint"></i></div>
+          <div class="laugh-trigger">
+            <div class="hungry-btn" id="laughBtn"><i class="fas fa-drumstick-bite"></i> i'm hungry</div>
+            <div class="laugh-feedback" id="laughDisplay">
+              <i class="fas fa-smile-wink"></i> giggle jar
+            </div>
+          </div>
+          <p style="margin-top: 1rem; font-size: 1.2rem;"><i class="fas fa-arrow-right"></i> tap when your tummy rumbles</p>
+        </div>
+      </div>
+
+      <!-- page 2 – reasons & romantic words -->
+      <div class="page" id="page2">
+        <h2><i class="fas fa-envelope-open-text"></i> because you are my grace</h2>
+        <div class="love-message" style="background: #fbe4f0;">
+          <i class="fas fa-rainbow"></i> every color of my sky begins with you.
+        </div>
+        <div class="reasons-grid">
+          <div class="reason"><i class="fas fa-sun"></i> you warm my coldest hours</div>
+          <div class="reason"><i class="fas fa-moon"></i> you glow in my dark</div>
+          <div class="reason"><i class="fas fa-wind"></i> you breathe calm into me</div>
+          <div class="reason"><i class="fas fa-tree"></i> with you i grow</div>
+          <div class="reason"><i class="fas fa-water"></i> your love flows endlessly</div>
+          <div class="reason"><i class="fas fa-infinity"></i> no end to us</div>
+        </div>
+        <!-- interactive romantic sentence shuffle -->
+        <div style="text-align: center; margin: 2rem 0;">
+          <button id="shuffleLove" class="hungry-btn" style="padding: 0.5rem 1.8rem; font-size: 1.3rem;"><i class="fas fa-sync-alt"></i> another whisper</button>
+          <div id="shuffleMessage" style="margin-top: 1.2rem; font-size: 1.7rem; background: #ffd9e8; padding: 1rem; border-radius: 60px;">
+            <i class="fas fa-heart" style="color:#b63e6d;"></i> you are my forever
           </div>
         </div>
       </div>
 
-      <!-- MEMORY MATCH Section -->
-      <div id="memorySection" class="section">
-        <div class="game-section">
-          <div class="game-title">💕 Memory Match 💕</div>
-          
-          <div class="game-stats">
-            <span><span class="material-icons text-pink-500 align-middle">favorite</span> Score: <span id="score">0</span></span>
-            <span><span class="material-icons text-pink-500 align-middle">stars</span> Level: <span id="level">1</span></span>
-            <span><span class="material-icons text-pink-500 align-middle">celebration</span> Matches: <span id="matches">0</span>/<span id="totalPairs">6</span></span>
+      <!-- page 3 – always here, poetic infinity -->
+      <div class="page" id="page3">
+        <h2><i class="fas fa-feather-alt"></i> infinity with you</h2>
+        <div class="floating-icons">
+          <i class="fas fa-star-and-crescent"></i>
+          <i class="fas fa-heart"></i>
+          <i class="fas fa-dove"></i>
+          <i class="fas fa-crown"></i>
+          <i class="fas fa-gem"></i>
+        </div>
+        <div class="love-message" style="text-align: center; font-size: 1.9rem; border-radius: 4rem;">
+          <p><i class="fas fa-quote-right"></i> Grace, my universe wears your name. </p>
+          <p style="font-size: 1.3rem; margin-top: 1rem;">every sunset, every breath — you.</p>
+        </div>
+        <!-- interactive declaration + soothing animation -->
+        <div style="display: flex; flex-wrap: wrap; gap: 1.2rem; justify-content: center; margin: 2.2rem 0;">
+          <div class="comfort-card" style="flex: 1; min-width:140px;" id="breathCard">
+            <i class="fas fa-heartbeat"></i>
+            <span>breathe with me</span>
           </div>
-
-          <div class="memory-grid" id="memoryGrid"></div>
-
-          <div class="game-message" id="gameMessage">
-            <span class="material-icons text-pink-500">favorite</span>
-            Match the love memories!
-            <span class="material-icons text-pink-500">favorite</span>
-          </div>
-
-          <div class="love-quote" id="loveQuote">
-            "Every love story is beautiful, but ours is my favorite."
-          </div>
-
-          <div class="text-center">
-            <button onclick="resetMemoryGame()" class="reset-button">
-              <span class="material-icons">favorite</span>
-              New Game
-              <span class="material-icons">favorite</span>
-            </button>
+          <div class="comfort-card" style="flex: 1; min-width:140px;" id="eternityCard">
+            <i class="fas fa-hourglass-half"></i>
+            <span>time stands still</span>
           </div>
         </div>
-      </div>
-
-      <!-- NAME MATCH GAME Section -->
-      <div id="nameGameSection" class="section">
-        <div class="game-section">
-          <div class="game-title">💕 Name Love Game 💕</div>
-          
-          <div class="text-center mb-4">
-            <span class="text-2xl font-['Dancing_Script'] text-pink-600">Grace</span>
-            <span class="material-icons text-pink-400 mx-2">favorite</span>
-            <span class="text-2xl font-['Dancing_Script'] text-pink-600">Alhaj</span>
-          </div>
-
-          <div class="game-stats">
-            <span><span class="material-icons text-pink-500 align-middle">favorite</span> Matches: <span id="nameMatches">0</span>/<span id="totalLetters">9</span></span>
-            <span><span class="material-icons text-pink-500 align-middle">percent</span> Love: <span id="lovePercent">0</span>%</span>
-          </div>
-
-          <!-- Name Match Grid -->
-          <div class="name-grid" id="nameGrid"></div>
-
-          <!-- Love Percentage Display -->
-          <div class="love-percentage" id="lovePercentageDisplay">0% Love</div>
-
-          <!-- Progress Bar -->
-          <div class="progress-bar">
-            <div class="progress-fill" id="loveProgress" style="width: 0%"></div>
-          </div>
-
-          <div class="game-message" id="nameGameMessage">
-            <span class="material-icons text-pink-500">favorite</span>
-            Match letters from our names!
-            <span class="material-icons text-pink-500">favorite</span>
-          </div>
-
-          <div class="text-center">
-            <button onclick="resetNameGame()" class="reset-button">
-              <span class="material-icons">favorite</span>
-              New Game
-              <span class="material-icons">favorite</span>
-            </button>
-          </div>
+        <div class="signature">
+          <i class="fas fa-feather"></i> only yours, always.
         </div>
-      </div>
-
-      <!-- Romantic footer -->
-      <div class="text-center mt-4 text-gray-500 text-xs">
-        <span class="material-icons align-middle text-pink-400 text-sm">favorite</span>
-        Made with infinite love for Grace
-        <span class="material-icons align-middle text-pink-400 text-sm">favorite</span>
       </div>
     </div>
   </div>
 
-  <!-- Message popup -->
-  <div id="messagePopup" class="message-popup hidden">
-    <span id="popupIcon" class="material-icons text-5xl text-pink-600">favorite</span>
-    <p id="popupText" class="text-lg text-pink-600 font-['Dancing_Script'] my-3"></p>
-    <button onclick="closePopup()" class="bg-pink-500 text-white px-5 py-2 rounded-full w-full text-sm">Close</button>
-  </div>
-  <div id="overlay" class="overlay hidden" onclick="closePopup()"></div>
-
   <script>
-    // ==================== NAVIGATION ====================
-    function switchSection(section) {
-      // Hide all sections
-      document.getElementById('loveSection').classList.remove('active');
-      document.getElementById('giftsSection').classList.remove('active');
-      document.getElementById('memorySection').classList.remove('active');
-      document.getElementById('nameGameSection').classList.remove('active');
-      
-      // Remove active class from all tabs
-      document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
-      
-      // Show selected section
-      if (section === 'love') {
-        document.getElementById('loveSection').classList.add('active');
-        document.querySelectorAll('.nav-tab')[0].classList.add('active');
-      } else if (section === 'gifts') {
-        document.getElementById('giftsSection').classList.add('active');
-        document.querySelectorAll('.nav-tab')[1].classList.add('active');
-      } else if (section === 'memory') {
-        document.getElementById('memorySection').classList.add('active');
-        document.querySelectorAll('.nav-tab')[2].classList.add('active');
-        initMemoryGame(); // Initialize memory game when switching to it
-      } else if (section === 'namegame') {
-        document.getElementById('nameGameSection').classList.add('active');
-        document.querySelectorAll('.nav-tab')[3].classList.add('active');
-        initNameGame(); // Initialize name game when switching to it
+    (function() {
+      // ----- page navigation -----
+      const tab1 = document.getElementById('tab1');
+      const tab2 = document.getElementById('tab2');
+      const tab3 = document.getElementById('tab3');
+      const page1 = document.getElementById('page1');
+      const page2 = document.getElementById('page2');
+      const page3 = document.getElementById('page3');
+      const tabs = [tab1, tab2, tab3];
+      const pages = [page1, page2, page3];
+
+      function setActivePage(index) {
+        tabs.forEach((t, i) => {
+          if (i === index) t.classList.add('active');
+          else t.classList.remove('active');
+        });
+        pages.forEach((p, i) => {
+          if (i === index) p.classList.add('active-page');
+          else p.classList.remove('active-page');
+        });
       }
-      
-      createConfetti(10);
-    }
 
-    // ==================== LOVE SECTION ====================
-    function showLoveMessage() {
-      createConfetti(50);
-      const popup = document.getElementById('messagePopup');
-      const overlay = document.getElementById('overlay');
-      const icon = document.getElementById('popupIcon');
-      const text = document.getElementById('popupText');
-      
-      icon.textContent = 'favorite';
-      text.textContent = 'I love you too, Grace! More than words can say... ❤️';
-      
-      popup.classList.remove('hidden');
-      overlay.classList.remove('hidden');
-      
-      // Show acceptance message
-      setTimeout(() => {
-        const acceptance = document.getElementById('acceptanceMessage');
-        const acceptanceText = document.getElementById('acceptanceText');
-        acceptanceText.textContent = 'My heart is yours forever. Every beat whispers your name, every breath is a prayer for your happiness. You are my today, my tomorrow, and my always. I promise to love you, cherish you, and make you smile every single day. Will you be mine forever?';
-        acceptance.classList.remove('hidden');
-      }, 500);
-    }
+      tab1.addEventListener('click', (e) => { e.preventDefault(); setActivePage(0); });
+      tab2.addEventListener('click', (e) => { e.preventDefault(); setActivePage(1); });
+      tab3.addEventListener('click', (e) => { e.preventDefault(); setActivePage(2); });
 
-    // ==================== GIFTS SECTION ====================
-    function openGift(giftNumber) {
-      createConfetti(20);
-      const popup = document.getElementById('messagePopup');
-      const overlay = document.getElementById('overlay');
-      const icon = document.getElementById('popupIcon');
-      const text = document.getElementById('popupText');
-      
-      const gifts = {
-        1: { icon: 'card_giftcard', text: 'Be Mine Forever - I choose you, today, tomorrow, and always. You are my forever person, my soulmate, my everything.' },
-        2: { icon: 'redeem', text: 'Endless Kisses - Every kiss I give you will be filled with passion, tenderness, and all the love in my heart. You deserve infinite affection.' },
-        3: { icon: 'celebration', text: 'Forever Love - My love for you has no end. It grows stronger every day, deeper every moment, more beautiful with every heartbeat.' },
-        4: { icon: 'spa', text: 'My Whole Heart - I give you my heart completely, without reservation, without hesitation. It belongs to you and only you.' }
-      };
-      
-      const gift = gifts[giftNumber];
-      icon.textContent = gift.icon;
-      text.textContent = gift.text;
-      
-      popup.classList.remove('hidden');
-      overlay.classList.remove('hidden');
-    }
+      // ----- interactive comfort cards (page 1) -----
+      const comfort1 = document.getElementById('comfort1');
+      const comfort2 = document.getElementById('comfort2');
+      const comfort3 = document.getElementById('comfort3');
 
-    // ==================== MEMORY MATCH GAME ====================
-    const memoryPairs = [
-      { id: 1, icon: 'favorite', text: 'First Kiss', emoji: '💋' },
-      { id: 2, icon: 'beach_access', text: 'Sunset Walk', emoji: '🌅' },
-      { id: 3, icon: 'cake', text: 'Birthday Surprise', emoji: '🎂' },
-      { id: 4, icon: 'umbrella', text: 'Rainy Day Hug', emoji: '☔' },
-      { id: 5, icon: 'coffee', text: 'Coffee Date', emoji: '☕' },
-      { id: 6, icon: 'music_note', text: 'Our Song', emoji: '🎵' }
-    ];
+      comfort1.addEventListener('click', () => alert('🎶 “Grace, you are the melody I never want to end.”'));
+      comfort2.addEventListener('click', () => alert('🐱 “A tiny dream whispered: you are loved, always.”'));
+      comfort3.addEventListener('click', () => alert('📖 “If our love were a book, it’d be infinite pages.”'));
 
-    const loveQuotes = [
-      "Every love story is beautiful, but ours is my favorite.",
-      "You are the poem I never knew how to write.",
-      "In your eyes, I found my forever home.",
-      "I love you more than all the stars in the sky.",
-      "You're my today, my tomorrow, and my always.",
-      "My heart beats only for you, Grace."
-    ];
+      // ----- hunger LAUGHTER machine (make her laugh when hungry) -----
+      const laughBtn = document.getElementById('laughBtn');
+      const laughDisplay = document.getElementById('laughDisplay');
 
-    let memoryCards = [];
-    let flippedMemoryCards = [];
-    let matchedMemoryPairs = 0;
-    let memoryScore = 0;
-    let memoryLevel = 1;
-    let canFlipMemory = true;
+      const jokes = [
+        '🥧 Why did the grape stop in the middle? It ran out of juice!',
+        '🐧 What do you call a penguin in the desert? Lost!',
+        '🍕 Why did the tomato blush? Because it saw the salad dressing!',
+        '🐝 What do you call a bee that can’t make up its mind? A maybe.',
+        '🍦 What’s an ice cream’s favorite song? “Sunday Sundae”',
+        '🌭 Why did the hot dog laugh? Because the bun was a wiener!',
+        '🧀 Why don’t elephants use computers? They’re afraid of the mouse!',
+        '🍪 What did the milk say to the cookie? “You’re one smart cookie!”',
+        '🍌 Why did the banana go to the doctor? It wasn’t peeling well.'
+      ];
 
-    function initMemoryGame() {
-      let numPairs = Math.min(4 + memoryLevel, memoryPairs.length);
-      document.getElementById('totalPairs').textContent = numPairs;
-      
-      let selectedPairs = memoryPairs.slice(0, numPairs);
-      
-      memoryCards = [];
-      selectedPairs.forEach((pair) => {
-        memoryCards.push({ id: pair.id, icon: pair.icon, text: pair.text, matched: false, cardId: Math.random() });
-        memoryCards.push({ id: pair.id, icon: pair.icon, text: pair.text, matched: false, cardId: Math.random() });
+      laughBtn.addEventListener('click', () => {
+        const randomIndex = Math.floor(Math.random() * jokes.length);
+        // also change display with icon animation
+        laughDisplay.innerHTML = `<i class="fas fa-laugh-beam"></i> ${jokes[randomIndex]} <i class="fas fa-utensils"></i>`;
+        // bonus: gentle shake on button to mimic laughter
+        laughBtn.style.transform = 'rotate(1deg) scale(1.05)';
+        setTimeout(() => laughBtn.style.transform = '', 150);
       });
-      
-      memoryCards = shuffleArray(memoryCards);
-      
-      matchedMemoryPairs = 0;
-      document.getElementById('matches').textContent = matchedMemoryPairs;
-      flippedMemoryCards = [];
-      renderMemoryGrid();
-    }
 
-    function renderMemoryGrid() {
-      let html = '';
-      memoryCards.forEach((card, index) => {
-        let cardClass = 'memory-card';
-        if (card.matched) cardClass += ' matched';
-        html += `
-          <div class="${cardClass}" onclick="flipMemoryCard(this, ${index})" data-index="${index}">
-            <div class="front"><span class="material-icons text-white text-2xl">favorite</span></div>
-            <div class="back"><span class="material-icons text-pink-600 text-2xl">${card.icon}</span></div>
-          </div>
-        `;
+      // double click on laugh display itself for extra fun
+      laughDisplay.addEventListener('dblclick', () => {
+        laughDisplay.innerHTML = `<i class="fas fa-heart"></i> you make me smile, Grace <i class="fas fa-heart"></i>`;
       });
-      document.getElementById('memoryGrid').innerHTML = html;
-    }
 
-    function flipMemoryCard(element, index) {
-      if (!canFlipMemory) return;
-      if (memoryCards[index].matched) return;
-      if (flippedMemoryCards.includes(index)) return;
-      if (flippedMemoryCards.length >= 2) return;
+      // ----- page 2 shuffle love messages -----
+      const shuffleBtn = document.getElementById('shuffleLove');
+      const shuffleMsg = document.getElementById('shuffleMessage');
 
-      element.classList.add('flipped');
-      flippedMemoryCards.push(index);
+      const loveLines = [
+        '<i class="fas fa-heart"></i> you are the poetry i never knew',
+        '<i class="fas fa-star"></i> my universe conspired to find you',
+        '<i class="fas fa-cloud"></i> your name is my first thought',
+        '<i class="fas fa-crown"></i> grace, you wear my soul gently',
+        '<i class="fas fa-feather"></i> with you, i am home',
+        '<i class="fas fa-infinity"></i> no end, only us',
+        '<i class="fas fa-gem"></i> you are rare, you are grace',
+      ];
 
-      if (flippedMemoryCards.length === 2) {
-        checkMemoryMatch();
-      }
-    }
-
-    function checkMemoryMatch() {
-      canFlipMemory = false;
-      let card1 = memoryCards[flippedMemoryCards[0]];
-      let card2 = memoryCards[flippedMemoryCards[1]];
-
-      if (card1.id === card2.id) {
-        setTimeout(() => {
-          memoryCards[flippedMemoryCards[0]].matched = true;
-          memoryCards[flippedMemoryCards[1]].matched = true;
-          
-          document.querySelector(`[data-index="${flippedMemoryCards[0]}"]`).classList.add('matched');
-          document.querySelector(`[data-index="${flippedMemoryCards[1]}"]`).classList.add('matched');
-          
-          matchedMemoryPairs++;
-          document.getElementById('matches').textContent = matchedMemoryPairs;
-          memoryScore += 10 * memoryLevel;
-          document.getElementById('score').textContent = memoryScore;
-          
-          document.getElementById('gameMessage').innerHTML = `<span class="text-green-600">💕 Perfect match! That's our ${card1.text} memory! 💕</span>`;
-          createConfetti(10);
-          
-          if (matchedMemoryPairs === memoryCards.length / 2) {
-            levelComplete();
-          }
-          
-          flippedMemoryCards = [];
-          canFlipMemory = true;
-        }, 500);
-      } else {
-        setTimeout(() => {
-          document.querySelector(`[data-index="${flippedMemoryCards[0]}"]`).classList.remove('flipped');
-          document.querySelector(`[data-index="${flippedMemoryCards[1]}"]`).classList.remove('flipped');
-          
-          document.getElementById('gameMessage').innerHTML = `<span class="text-pink-600">Not a match... but our love is always perfect ❤️</span>`;
-          
-          flippedMemoryCards = [];
-          canFlipMemory = true;
-        }, 800);
-      }
-    }
-
-    function levelComplete() {
-      memoryLevel++;
-      document.getElementById('level').textContent = memoryLevel;
-      
-      let quoteIndex = (memoryLevel - 1) % loveQuotes.length;
-      document.getElementById('loveQuote').textContent = `"${loveQuotes[quoteIndex]}"`;
-      
-      document.getElementById('gameMessage').innerHTML = `<span class="text-purple-600 font-bold">✨ LEVEL ${memoryLevel-1} COMPLETE! ✨</span>`;
-      createConfetti(30);
-      
-      memoryScore += 50;
-      document.getElementById('score').textContent = memoryScore;
-      
-      setTimeout(() => {
-        initMemoryGame();
-      }, 1500);
-    }
-
-    function resetMemoryGame() {
-      memoryLevel = 1;
-      memoryScore = 0;
-      document.getElementById('score').textContent = memoryScore;
-      document.getElementById('level').textContent = memoryLevel;
-      document.getElementById('loveQuote').textContent = `"${loveQuotes[0]}"`;
-      initMemoryGame();
-      createConfetti(15);
-    }
-
-    // ==================== NAME MATCH GAME ====================
-    const graceName = ['G', 'R', 'A', 'C', 'E'];
-    const alhajName = ['A', 'L', 'H', 'A', 'J'];
-    const allLetters = [...graceName, ...alhajName];
-
-    let nameCards = [];
-    let flippedNameCards = [];
-    let matchedNamePairs = 0;
-    let canFlipName = true;
-    let lovePercentage = 0;
-
-    function initNameGame() {
-      // Create cards for each letter (two of each for matching)
-      nameCards = [];
-      
-      // Add Grace's letters
-      graceName.forEach(letter => {
-        nameCards.push({ letter: letter, owner: 'grace', matched: false, id: Math.random() });
-        nameCards.push({ letter: letter, owner: 'grace', matched: false, id: Math.random() });
+      shuffleBtn.addEventListener('click', () => {
+        const rand = Math.floor(Math.random() * loveLines.length);
+        shuffleMsg.innerHTML = loveLines[rand];
       });
-      
-      // Add Alhaj's letters
-      alhajName.forEach(letter => {
-        nameCards.push({ letter: letter, owner: 'alhaj', matched: false, id: Math.random() });
-        nameCards.push({ letter: letter, owner: 'alhaj', matched: false, id: Math.random() });
+
+      // ----- page 3 interactive cards -----
+      document.getElementById('breathCard').addEventListener('click', function() {
+        alert('🌬️ Breathe in peace, breathe out love. I am your air.');
       });
-      
-      nameCards = shuffleArray(nameCards);
-      
-      matchedNamePairs = 0;
-      lovePercentage = 0;
-      document.getElementById('nameMatches').textContent = matchedNamePairs;
-      document.getElementById('totalLetters').textContent = graceName.length + alhajName.length;
-      document.getElementById('lovePercent').textContent = lovePercentage;
-      document.getElementById('lovePercentageDisplay').textContent = '0% Love';
-      document.getElementById('loveProgress').style.width = '0%';
-      
-      flippedNameCards = [];
-      renderNameGrid();
-    }
-
-    function renderNameGrid() {
-      let html = '';
-      nameCards.forEach((card, index) => {
-        let cardClass = 'letter-card';
-        if (card.matched) cardClass += ' matched';
-        html += `
-          <div class="${cardClass}" onclick="flipNameCard(this, ${index})" data-index="${index}">
-            <div class="front"><span class="text-2xl">?</span></div>
-            <div class="back"><span class="text-2xl" style="color: ${card.owner === 'grace' ? '#ff1493' : '#c71585'}">${card.letter}</span></div>
-          </div>
-        `;
+      document.getElementById('eternityCard').addEventListener('click', function() {
+        alert('⏳ Time folds when i think of you — it’s always us.');
       });
-      document.getElementById('nameGrid').innerHTML = html;
-    }
 
-    function flipNameCard(element, index) {
-      if (!canFlipName) return;
-      if (nameCards[index].matched) return;
-      if (flippedNameCards.includes(index)) return;
-      if (flippedNameCards.length >= 2) return;
+      // ----- extra floating animation on all pages? additional playful -----
+      // double click anywhere on page 3 adds sparkle effect (message)
+      page3.addEventListener('dblclick', (e) => {
+        if (page3.classList.contains('active-page')) {
+          alert('✨ you just sparkled my heart, Grace ✨');
+        }
+      });
 
-      element.classList.add('flipped');
-      flippedNameCards.push(index);
+      // company icons also react (page1 companion)
+      const companionItems = document.querySelectorAll('.companion-item');
+      companionItems.forEach(item => {
+        item.addEventListener('click', () => {
+          // make her feel accompanied
+          alert('💞 i’m right here, holding your hand.');
+        });
+      });
 
-      if (flippedNameCards.length === 2) {
-        checkNameMatch();
-      }
-    }
-
-    function checkNameMatch() {
-      canFlipName = false;
-      let card1 = nameCards[flippedNameCards[0]];
-      let card2 = nameCards[flippedNameCards[1]];
-
-      // Check if they match (same letter and different owners)
-      if (card1.letter === card2.letter && card1.owner !== card2.owner) {
-        // PERFECT MATCH!
-        setTimeout(() => {
-          nameCards[flippedNameCards[0]].matched = true;
-          nameCards[flippedNameCards[1]].matched = true;
-          
-          document.querySelector(`[data-index="${flippedNameCards[0]}"]`).classList.add('matched');
-          document.querySelector(`[data-index="${flippedNameCards[1]}"]`).classList.add('matched');
-          
-          matchedNamePairs++;
-          lovePercentage = Math.round((matchedNamePairs / (graceName.length + alhajName.length)) * 100);
-          
-          document.getElementById('nameMatches').textContent = matchedNamePairs;
-          document.getElementById('lovePercent').textContent = lovePercentage;
-          document.getElementById('lovePercentageDisplay').textContent = lovePercentage + '% Love';
-          document.getElementById('loveProgress').style.width = lovePercentage + '%';
-          
-          // Romantic messages based on percentage
-          let message = '';
-          if (lovePercentage < 30) message = '💕 Our love is growing!';
-          else if (lovePercentage < 60) message = '💖 We\'re getting there!';
-          else if (lovePercentage < 80) message = '💗 Almost perfect!';
-          else if (lovePercentage < 100) message = '💘 So close to 100%!';
-          else message = '💞 100% PERFECT LOVE! We are meant to be!';
-          
-          document.getElementById('nameGameMessage').innerHTML = `<span class="text-green-600">${message}</span>`;
-          createConfetti(15);
-          
-          // Check if game complete
-          if (matchedNamePairs === graceName.length + alhajName.length) {
-            gameComplete();
-          }
-          
-          flippedNameCards = [];
-          canFlipName = true;
-        }, 500);
-      } else {
-        // No match
-        setTimeout(() => {
-          document.querySelector(`[data-index="${flippedNameCards[0]}"]`).classList.remove('flipped');
-          document.querySelector(`[data-index="${flippedNameCards[1]}"]`).classList.remove('flipped');
-          
-          document.getElementById('nameGameMessage').innerHTML = `<span class="text-pink-600">Not a match... try again ❤️</span>`;
-          
-          flippedNameCards = [];
-          canFlipName = true;
-        }, 800);
-      }
-    }
-
-    function gameComplete() {
-      document.getElementById('nameGameMessage').innerHTML = `<span class="text-purple-600 font-bold">✨ 100% LOVE! We are perfect together! ✨</span>`;
-      createConfetti(50);
-      
-      // Show special popup
-      setTimeout(() => {
-        const popup = document.getElementById('messagePopup');
-        const overlay = document.getElementById('overlay');
-        const icon = document.getElementById('popupIcon');
-        const text = document.getElementById('popupText');
-        
-        icon.textContent = 'favorite';
-        text.textContent = '100% LOVE! Grace and Alhaj are meant to be! 💕';
-        
-        popup.classList.remove('hidden');
-        overlay.classList.remove('hidden');
-      }, 500);
-    }
-
-    function resetNameGame() {
-      initNameGame();
-      createConfetti(15);
-      document.getElementById('nameGameMessage').innerHTML = '<span class="material-icons text-pink-500">favorite</span> Match our letters! <span class="material-icons text-pink-500">favorite</span>';
-    }
-
-    // ==================== UTILITY FUNCTIONS ====================
-    function shuffleArray(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array;
-    }
-
-    function initHearts() {
-      const canvas = document.getElementById('heartCanvas');
-      for (let i = 0; i < 20; i++) {
-        const heart = document.createElement('span');
-        heart.className = 'material-icons floating-icon';
-        heart.textContent = 'favorite';
-        heart.style.left = Math.random() * 100 + '%';
-        heart.style.animationDuration = (Math.random() * 10 + 8) + 's';
-        heart.style.animationDelay = Math.random() * 5 + 's';
-        heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
-        heart.style.opacity = 0.3;
-        canvas.appendChild(heart);
-      }
-    }
-
-    function createConfetti(count = 30) {
-      for (let i = 0; i < count; i++) {
-        setTimeout(() => {
-          const confetti = document.createElement('div');
-          confetti.className = 'confetti';
-          confetti.style.left = Math.random() * 100 + '%';
-          confetti.style.background = `hsl(${Math.random() * 30 + 330}, 80%, 70%)`;
-          confetti.style.width = (Math.random() * 12 + 5) + 'px';
-          confetti.style.height = (Math.random() * 12 + 5) + 'px';
-          confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
-          document.body.appendChild(confetti);
-          setTimeout(() => confetti.remove(), 3000);
-        }, i * 20);
-      }
-    }
-
-    function closePopup() {
-      document.getElementById('messagePopup').classList.add('hidden');
-      document.getElementById('overlay').classList.add('hidden');
-    }
-
-    // Initialize everything
-    window.onload = function() {
-      initHearts();
-      initMemoryGame();
-      initNameGame();
-      createConfetti(20);
-    };
+      // one extra: hunger button also changes icon on hover (just for delight)
+      laughBtn.addEventListener('mouseenter', () => {
+        laughBtn.innerHTML = '<i class="fas fa-utensil-spoon"></i> snack attack <i class="fas fa-cookie-bite"></i>';
+      });
+      laughBtn.addEventListener('mouseleave', () => {
+        laughBtn.innerHTML = '<i class="fas fa-drumstick-bite"></i> i\'m hungry';
+      });
+    })();
   </script>
 </body>
 </html>
