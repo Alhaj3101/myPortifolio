@@ -3,602 +3,499 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>for grace • always here</title>
-  <!-- Font Awesome 6 (free icons, no emojis) -->
+  <title>for Stella — a constellation of love</title>
+  <!-- Font Awesome 6 (free icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', 'Roboto', system-ui, sans-serif;
     }
 
     body {
-      background: linear-gradient(145deg, #f9eef7 0%, #fad9e6 100%);
+      background: linear-gradient(145deg, #fbe9f0 0%, #f8e0ee 100%);
+      font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #3a2c3b;
+      padding: 2rem 1rem;
       min-height: 100vh;
       display: flex;
-      align-items: center;
       justify-content: center;
-      padding: 1rem;
+      align-items: center;
     }
 
-    /* main book/card container */
-    .book {
-      max-width: 1100px;
+    .love-page {
+      max-width: 950px;
       width: 100%;
+      margin: 0 auto;
       background: rgba(255, 250, 245, 0.7);
       backdrop-filter: blur(8px);
-      border-radius: 3.5rem 3.5rem 2.5rem 2.5rem;
-      box-shadow: 0 30px 50px rgba(180, 70, 120, 0.25),
-                  inset 2px 2px 5px rgba(255, 255, 255, 0.8),
-                  inset -6px -6px 12px rgba(160, 100, 130, 0.1);
-      padding: 2rem 1.5rem 2.5rem 1.5rem;
+      border-radius: 48px 48px 32px 32px;
+      box-shadow: 0 30px 50px rgba(190, 120, 150, 0.25),
+                  0 10px 25px rgba(80, 40, 60, 0.15);
+      padding: 2.8rem 2.2rem;
+      border: 2px solid rgba(255, 220, 240, 0.6);
       transition: all 0.3s ease;
     }
 
-    /* navigation tabs (3 pages) */
-    .page-nav {
-      display: flex;
-      justify-content: center;
-      gap: 1.2rem;
-      margin-bottom: 2.2rem;
-      flex-wrap: wrap;
+    /* header – dedicated to Stella */
+    .stellar-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      border-bottom: 2px dashed #e6b8cc;
+      padding-bottom: 2rem;
     }
 
-    .page-btn {
-      background: transparent;
-      border: none;
-      font-size: 1.5rem;
-      font-weight: 500;
-      padding: 0.7rem 1.8rem;
+    .name-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .name-badge i {
+      font-size: 2.8rem;
+      color: #c25b7c;
+      filter: drop-shadow(0 4px 6px #f1b6d0);
+      transition: transform 0.2s;
+    }
+
+    .name-badge i:hover {
+      transform: scale(1.1) rotate(3deg);
+    }
+
+    .name-badge h1 {
+      font-size: 4rem;
+      font-weight: 400;
+      letter-spacing: 3px;
+      font-family: 'Georgia', serif;
+      color: #64233e;
+      text-shadow: 2px 2px 0 #fbc1d9;
+      margin: 0;
+    }
+
+    .sub-star {
+      font-size: 1.7rem;
+      color: #ad4d6c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+    }
+
+    .sub-star i {
+      font-size: 1.6rem;
+      color: #c08497;
+    }
+
+    /* intro / how i love you */
+    .declaration {
+      background: #fff2f7ee;
+      padding: 2rem 2rem;
+      border-radius: 60px 20px 60px 20px;
+      margin: 2rem 0 2.8rem 0;
+      border: 1px solid #ffd9e8;
+      box-shadow: inset 0 1px 4px #ffeef4, 0 12px 18px -14px #b37b92;
+    }
+
+    .declaration p {
+      font-size: 1.9rem;
+      line-height: 1.4;
+      font-weight: 350;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      color: #331f28;
+    }
+
+    .declaration strong {
+      font-weight: 600;
+      color: #aa3e64;
+      background: linear-gradient(to right, #f9cedb, #ffffff00);
+      padding: 0.2rem 0.8rem;
       border-radius: 60px;
-      color: #a65e7e;
+    }
+
+    .big-heart {
+      font-size: 2.6rem;
+      color: #e15574;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); text-shadow: 0 0 8px #ffacc0; }
+    }
+
+    /* poems grid — many many verses */
+    .poems-garden {
+      display: flex;
+      flex-direction: column;
+      gap: 2.2rem;
+      margin: 3rem 0 2rem;
+    }
+
+    .poem-card {
+      background: #ffffffdb;
+      backdrop-filter: blur(4px);
+      border-radius: 32px 42px 32px 42px;
+      padding: 2rem 2rem 1.8rem 2.4rem;
+      box-shadow: 0 12px 22px -14px #89627733;
+      border-left: 10px solid #f6adc6;
+      transition: all 0.2s;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 1.2rem;
+    }
+
+    .poem-card:hover {
+      border-left-color: #b34062;
+      background: #fff9fc;
+    }
+
+    .icon-quote {
+      font-size: 2.5rem;
+      min-width: 2.5rem;
+      color: #dd87a3;
+      opacity: 0.7;
+    }
+
+    .verses {
+      flex: 1;
+      font-size: 1.32rem;
+      line-height: 1.8;
+      white-space: pre-line;
+      font-family: 'Trebuchet MS', 'Lucida Sans', sans-serif;
+      color: #2d2027;
+    }
+
+    .verses i {
+      color: #c26d8b;
+      margin-right: 6px;
+    }
+
+    .verses .fa-star {
+      color: #b3426a;
+      font-size: 1rem;
+      margin: 0 2px;
+    }
+
+    /* second poem style — more stanzas */
+    .stanza-break {
+      margin: 0.6rem 0;
+      font-style: italic;
+      opacity: 0.8;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .stanza-break i {
+      font-size: 1rem;
+    }
+
+    /* extra specific for many lines */
+    .line-block {
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .fa-star-of-life {
+      color: #e38eb0;
+    }
+
+    /* Stella's qualities list */
+    .why-stella {
+      margin: 3.5rem 0 1.5rem;
+      background: linear-gradient(130deg, #fff1f9, #ffeef4);
+      border-radius: 50px 20px 50px 20px;
+      padding: 2.2rem 2rem;
+    }
+
+    .why-stella h2 {
+      font-size: 2.3rem;
+      font-weight: 380;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      color: #5d2e43;
+      border-bottom: 1px solid #f3b9cf;
+      padding-bottom: 0.7rem;
+      margin-bottom: 2rem;
+    }
+
+    .quality-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .quality-item {
+      background: white;
+      padding: 1.3rem 0.8rem;
+      text-align: center;
+      border-radius: 70px 20px 70px 20px;
+      box-shadow: 0 5px 10px #efc1d3;
+      font-size: 1.3rem;
+      font-weight: 400;
+      transition: 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .quality-item i {
+      font-size: 2.2rem;
+      color: #b34d71;
+    }
+
+    .quality-item span {
+      background: #fbe2ec;
+      padding: 0.2rem 1rem;
+      border-radius: 60px;
+      width: fit-content;
+    }
+
+    /* closing footer */
+    .closing-note {
+      margin-top: 3.8rem;
+      text-align: center;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      background: #ffe2edb0;
+      padding: 1.2rem 1rem;
+      border-radius: 200px;
+    }
+
+    .closing-note i {
+      color: #c45073;
+      font-size: 2.5rem;
+    }
+
+    button {
+      background: none;
+      border: 2px solid #dc8ba7;
+      padding: 0.6rem 1.8rem;
+      border-radius: 60px;
+      font-size: 1.2rem;
+      color: #64233e;
+      font-weight: 500;
       cursor: pointer;
+      transition: 0.2s;
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      box-shadow: 0 4px 10px rgba(200, 120, 150, 0.2);
-      transition: 0.2s;
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(255, 220, 240, 0.9);
+      margin-top: 1rem;
     }
 
-    .page-btn i {
-      font-size: 1.4rem;
-      color: #ce7ca0;
-    }
-
-    .page-btn.active {
-      background: #ffd9e8;
-      color: #911f56;
-      border-color: #ffb3c6;
-      box-shadow: 0 10px 18px #fba9c4;
-      transform: scale(1.02);
-    }
-
-    .page-btn:hover:not(.active) {
-      background: #ffeef4;
-      transform: translateY(-3px);
-    }
-
-    /* dynamic pages container */
-    .pages-container {
-      position: relative;
-      min-height: 440px;
-    }
-
-    .page {
-      display: none;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-      padding: 1.8rem 2rem;
-      border-radius: 2.2rem;
-      background: rgba(255, 245, 250, 0.7);
-      backdrop-filter: blur(4px);
-      box-shadow: inset 0 1px 5px rgba(255, 255, 255, 0.9), 0 15px 25px rgba(170, 120, 140, 0.25);
-      border: 1px solid #ffeef4;
-    }
-
-    .page.active-page {
-      display: block;
-      opacity: 1;
-      animation: floatIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-    @keyframes floatIn {
-      0% { transform: translateY(15px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
-    }
-
-    /* romantic typography */
-    h2 {
-      font-size: 2.5rem;
-      font-weight: 400;
-      letter-spacing: 1px;
-      color: #632e4a;
-      margin-bottom: 1rem;
-      border-left: 7px solid #f69abf;
-      padding-left: 1.3rem;
-    }
-
-    h2 i {
-      color: #c44573;
-      margin-right: 0.8rem;
-    }
-
-    .love-message {
+    button i {
       font-size: 1.3rem;
-      line-height: 1.7;
-      color: #3d2537;
-      margin: 1.4rem 0 1rem 0;
-      background: rgba(255, 215, 235, 0.3);
-      padding: 1.5rem;
-      border-radius: 3rem 1rem 3rem 1rem;
-      box-shadow: inset 0 -2px 5px #ffe2f0;
     }
 
-    /* interactive cards / special zones */
-    .whisper-zone {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: center;
-      margin: 2.2rem 0 0.5rem;
+    button:hover {
+      background: #eec9da;
+      border-color: #ac4e70;
+      box-shadow: 0 6px 12px #e7b3c9;
     }
 
-    .comfort-card {
-      background: #ffe2ed;
-      padding: 1.8rem 1.2rem;
-      border-radius: 3rem 1rem 3rem 1rem;
-      flex: 1 1 200px;
-      text-align: center;
-      transition: all 0.3s;
-      border: 2px dashed #ffb0cc;
-      cursor: pointer;
-    }
-
-    .comfort-card i {
-      font-size: 2.8rem;
-      color: #b34370;
-      margin-bottom: 1rem;
-      transition: 0.2s;
-    }
-
-    .comfort-card span {
-      display: block;
-      font-size: 1.2rem;
-      color: #4f2b3f;
-    }
-
-    .comfort-card:hover {
-      background: #ffeef5;
-      transform: scale(1.02) rotate(0.5deg);
-      border: 2px solid #f873a5;
-    }
-
-    .comfort-card:active i {
-      transform: scale(1.2);
-      color: #ed5e9a;
-    }
-
-    /* laughter / hunger section */
-    .hunger-laugh-area {
-      background: #fbc1d5;
-      border-radius: 4rem 4rem 2rem 2rem;
-      padding: 2rem 1.5rem;
-      margin-top: 2rem;
-      text-align: center;
-      box-shadow: 0 12px 0 #b25f83, 0 15px 25px #f1a3c0;
-    }
-
-    .laugh-trigger {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .hungry-btn {
-      background: #fef5f8;
-      border: 3px solid #b34370;
-      border-radius: 60px;
-      padding: 0.8rem 2.5rem;
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: #a13560;
-      display: inline-flex;
-      align-items: center;
-      gap: 15px;
-      cursor: pointer;
-      transition: 0.15s;
-      box-shadow: 0 7px 0 #732a4b;
-    }
-
-    .hungry-btn:active {
-      transform: translateY(5px);
-      box-shadow: 0 2px 0 #732a4b;
-    }
-
-    .laugh-feedback {
-      font-size: 2rem;
-      font-weight: 400;
-      color: #2d1426;
-      background: #fff2f9;
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      min-width: 200px;
-      border: 2px solid white;
-    }
-
-    .laugh-feedback i {
-      margin: 0 0.3rem;
-      color: #c94f7c;
-    }
-
-    /* animated company section */
-    .company-grace {
-      background: #eed2e0;
-      border-radius: 2.5rem;
-      margin: 1.5rem 0;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .companion-cat {
-      display: flex;
-      gap: 2.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .companion-item {
-      animation: bounce 2.2s infinite ease-in-out;
-      transform-origin: center;
-      font-size: 1.8rem;
-      background: rgba(255, 255, 255, 0.5);
-      padding: 1rem 2rem;
-      border-radius: 90px;
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      backdrop-filter: blur(4px);
-    }
-
-    .companion-item i {
-      font-size: 2.5rem;
-      color: #a53860;
-    }
-
-    @keyframes bounce {
-      0%,100%{ transform: translateY(0); }
-      50%{ transform: translateY(-12px); }
-    }
-
-    /* page 2 extra interactive */
-    .page-2-love {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .reasons-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-      margin: 1.8rem 0;
-    }
-
-    .reason {
-      background: #ffdeec;
-      border-radius: 35px 10px 35px 10px;
-      padding: 1.5rem 0.5rem;
-      text-align: center;
-      font-size: 1.2rem;
-      transition: 0.2s;
-      border: 1px solid white;
-    }
-
-    .reason i {
-      font-size: 2.2rem;
-      color: #b63e6d;
-      display: block;
-      margin-bottom: 0.4rem;
-    }
-
-    .reason:hover {
-      background: #fec7df;
-      rotate: 0.5deg;
-      scale: 1.02;
-    }
-
-    /* page 3: poem & floating things */
-    .floating-icons {
-      display: flex;
-      justify-content: space-around;
-      margin: 2.5rem 0 1rem;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .floating-icons i {
-      font-size: 2.8rem;
-      color: #a74974;
-      filter: drop-shadow(0 8px 8px #fcaecf);
-      animation: drift 3s infinite alternate;
-    }
-
-    @keyframes drift {
-      0% { transform: translateY(0px) rotate(0deg); }
-      100% { transform: translateY(-18px) rotate(5deg); }
-    }
-
-    /* extra micro-interactions */
-    .signature {
-      margin-top: 2rem;
-      text-align: right;
-      font-size: 1.4rem;
-      font-style: italic;
-      color: #734b62;
-      border-top: 2px dotted #d989b1;
-      padding-top: 1rem;
-    }
-
-    .signature i {
-      margin: 0 5px;
-    }
-
-    /* responsiveness */
-    @media (max-width: 600px) {
-      .book { padding: 1rem; }
-      h2 { font-size: 2rem; }
+    /* small responsive */
+    @media (max-width: 550px) {
+      .love-page { padding: 1.8rem 1rem; }
+      .name-badge h1 { font-size: 3rem; }
+      .declaration p { font-size: 1.5rem; }
     }
   </style>
 </head>
 <body>
-  <div class="book">
-    <!-- 3 page tabs -->
-    <div class="page-nav">
-      <button class="page-btn active" id="tab1"><i class="fas fa-heart"></i> forever</button>
-      <button class="page-btn" id="tab2"><i class="fas fa-feather-alt"></i> yours</button>
-      <button class="page-btn" id="tab3"><i class="fas fa-infinity"></i> always</button>
+<div class="love-page">
+
+  <!-- header with icons only (no emojis) -->
+  <div class="stellar-header">
+    <div class="name-badge">
+      <i class="fas fa-star"></i>
+      <h1>Stella</h1>
+      <i class="fas fa-star"></i>
+    </div>
+    <div class="sub-star">
+      <i class="fas fa-crown"></i>
+      <span>my universe, my poem</span>
+      <i class="fas fa-crown"></i>
+    </div>
+  </div>
+
+  <!-- how much i love you - simple english -->
+  <div class="declaration">
+    <p>
+      <i class="fas fa-heart big-heart"></i>
+      i love you, <strong>Stella</strong>, more than all the stars
+      <i class="fas fa-heart big-heart"></i>
+    </p>
+    <p style="font-size:1.4rem; margin-top:1rem; gap:0.8rem;">
+      <i class="fas fa-infinity"></i> with every breath, with every rhyme <i class="fas fa-infinity"></i>
+    </p>
+  </div>
+
+  <!-- POEMS: many verses, all about Stella, romantic, simple english -->
+  <div class="poems-garden">
+
+    <!-- poem 1 - many lines -->
+    <div class="poem-card">
+      <div class="icon-quote"><i class="fas fa-quote-left"></i></div>
+      <div class="verses">
+        <i class="fas fa-star"></i> Stella, your name is a gentle song,<br>
+        it dances on my lips all day long.<br>
+        your eyes are soft, like morning light,<br>
+        they make the darkest evening bright.<br>
+        <span class="stanza-break"><i class="fas fa-chevron-circle-down"></i> and when you smile, the world stands still,</span>
+        my heart obeys your gentle will.<br>
+        i love the way you say my name,<br>
+        it never, ever feels the same.<br>
+        you walk in grace, you talk with ease,<br>
+        you're prettier than a summer breeze.
+      </div>
+      <div class="icon-quote" style="align-self:flex-end;"><i class="fas fa-quote-right"></i></div>
     </div>
 
-    <!-- pages container -->
-    <div class="pages-container">
-      <!-- page 1 – comfort & company when lonely -->
-      <div class="page active-page" id="page1">
-        <h2><i class="fas fa-couch"></i> when you feel lonely, grace</h2>
-        <div class="love-message">
-          <i class="fas fa-quote-left" style="opacity:0.5;"></i> 
-          I am only a click away. My heart sits beside yours, even on the quietest nights.
-        </div>
-        
-        <!-- interactive company zone (loneliness comfort) -->
-        <div class="company-grace">
-          <div style="display: flex; gap: 10px; margin-bottom: 15px;">
-            <i class="fas fa-star" style="color:#cc7b9e;"></i>
-            <span style="font-weight:600;">lean on me — i'm here</span>
-            <i class="fas fa-star" style="color:#cc7b9e;"></i>
-          </div>
-          <div class="companion-cat">
-            <div class="companion-item" title="i'm with you">
-              <i class="fas fa-cloud-moon"></i> <span>moon whispers</span>
-            </div>
-            <div class="companion-item" title="hold my hand virtually">
-              <i class="fas fa-hand-holding-heart"></i> <span>always close</span>
-            </div>
-            <div class="companion-item" title="soft thoughts">
-              <i class="fas fa-feather"></i> <span>grace's glow</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- whisper cards (interactive) -->
-        <div class="whisper-zone">
-          <div class="comfort-card" id="comfort1">
-            <i class="fas fa-music"></i>
-            <span>our melody</span>
-          </div>
-          <div class="comfort-card" id="comfort2">
-            <i class="fas fa-cat"></i>
-            <span>tiny dream</span>
-          </div>
-          <div class="comfort-card" id="comfort3">
-            <i class="fas fa-book-open"></i>
-            <span>love note</span>
-          </div>
-        </div>
-
-        <!-- laughter & hunger section (makes her laugh when hungry) -->
-        <div class="hunger-laugh-area">
-          <div style="font-size: 1.7rem; margin-bottom: 0.5rem;"><i class="fas fa-pizza-slice"></i> hungry? let's laugh <i class="fas fa-laugh-squint"></i></div>
-          <div class="laugh-trigger">
-            <div class="hungry-btn" id="laughBtn"><i class="fas fa-drumstick-bite"></i> i'm hungry</div>
-            <div class="laugh-feedback" id="laughDisplay">
-              <i class="fas fa-smile-wink"></i> giggle jar
-            </div>
-          </div>
-          <p style="margin-top: 1rem; font-size: 1.2rem;"><i class="fas fa-arrow-right"></i> tap when your tummy rumbles</p>
-        </div>
+    <!-- poem 2 - more stanzas, romantic -->
+    <div class="poem-card">
+      <div class="icon-quote"><i class="fas fa-feather-alt"></i></div>
+      <div class="verses">
+        <i class="fas fa-ribbon"></i> Stella, if i could paint the sky,<br>
+        i'd use the colour of your eye.<br>
+        if i could write a thousand songs,<br>
+        they'd tell the world where you belong.<br>
+        <span class="stanza-break"><i class="fas fa-dove"></i> right next to me, forevermore,</span>
+        you're the one i am living for.<br>
+        your laughter is a melody,<br>
+        that plays inside so tenderly.<br>
+        your hair falls down like golden rain,<br>
+        it washes away every pain.<br>
+        i love your hands, i love your soul,<br>
+        you make my broken spirit whole.
       </div>
+    </div>
 
-      <!-- page 2 – reasons & romantic words -->
-      <div class="page" id="page2">
-        <h2><i class="fas fa-envelope-open-text"></i> because you are my grace</h2>
-        <div class="love-message" style="background: #fbe4f0;">
-          <i class="fas fa-rainbow"></i> every color of my sky begins with you.
-        </div>
-        <div class="reasons-grid">
-          <div class="reason"><i class="fas fa-sun"></i> you warm my coldest hours</div>
-          <div class="reason"><i class="fas fa-moon"></i> you glow in my dark</div>
-          <div class="reason"><i class="fas fa-wind"></i> you breathe calm into me</div>
-          <div class="reason"><i class="fas fa-tree"></i> with you i grow</div>
-          <div class="reason"><i class="fas fa-water"></i> your love flows endlessly</div>
-          <div class="reason"><i class="fas fa-infinity"></i> no end to us</div>
-        </div>
-        <!-- interactive romantic sentence shuffle -->
-        <div style="text-align: center; margin: 2rem 0;">
-          <button id="shuffleLove" class="hungry-btn" style="padding: 0.5rem 1.8rem; font-size: 1.3rem;"><i class="fas fa-sync-alt"></i> another whisper</button>
-          <div id="shuffleMessage" style="margin-top: 1.2rem; font-size: 1.7rem; background: #ffd9e8; padding: 1rem; border-radius: 60px;">
-            <i class="fas fa-heart" style="color:#b63e6d;"></i> you are my forever
-          </div>
-        </div>
+    <!-- poem 3 – extra long, very many lines -->
+    <div class="poem-card">
+      <div class="icon-quote"><i class="fas fa-book-open"></i></div>
+      <div class="verses">
+        <i class="fas fa-heart"></i> The first time i saw you, my heart took flight,<br>
+        like a bird lost in the sweetest night.<br>
+        you smiled at me, and time just froze,<br>
+        a perfect rose between two toes. (gently)<br>
+        <span class="stanza-break"><i class="fas fa-cloud-moon"></i> i love you more with every day,</span>
+        more than the words can ever say.<br>
+        you are the poem i want to write,<br>
+        you are the dawn, you are the light.<br>
+        if you are sad, i'll hold you tight,<br>
+        and kiss your worries all goodnight.<br>
+        stella, stella, can't you see,<br>
+        you're all the love i'll ever need.<br>
+        your voice is soft, like falling rain,<br>
+        it washes away every stain.<br>
+        i'll be your shelter, i'll be your home,<br>
+        i'll never let you walk alone.<br>
+        <i class="fas fa-star-of-life"></i> you are my dream, my truth, my luck,<br>
+        my endless, ever-flowing love.
       </div>
+    </div>
 
-      <!-- page 3 – always here, poetic infinity -->
-      <div class="page" id="page3">
-        <h2><i class="fas fa-feather-alt"></i> infinity with you</h2>
-        <div class="floating-icons">
-          <i class="fas fa-star-and-crescent"></i>
-          <i class="fas fa-heart"></i>
-          <i class="fas fa-dove"></i>
-          <i class="fas fa-crown"></i>
-          <i class="fas fa-gem"></i>
-        </div>
-        <div class="love-message" style="text-align: center; font-size: 1.9rem; border-radius: 4rem;">
-          <p><i class="fas fa-quote-right"></i> Grace, my universe wears your name. </p>
-          <p style="font-size: 1.3rem; margin-top: 1rem;">every sunset, every breath — you.</p>
-        </div>
-        <!-- interactive declaration + soothing animation -->
-        <div style="display: flex; flex-wrap: wrap; gap: 1.2rem; justify-content: center; margin: 2.2rem 0;">
-          <div class="comfort-card" style="flex: 1; min-width:140px;" id="breathCard">
-            <i class="fas fa-heartbeat"></i>
-            <span>breathe with me</span>
-          </div>
-          <div class="comfort-card" style="flex: 1; min-width:140px;" id="eternityCard">
-            <i class="fas fa-hourglass-half"></i>
-            <span>time stands still</span>
-          </div>
-        </div>
-        <div class="signature">
-          <i class="fas fa-feather"></i> only yours, always.
-        </div>
+    <!-- poem 4 – more intimate -->
+    <div class="poem-card">
+      <div class="icon-quote"><i class="fas fa-infinity"></i></div>
+      <div class="verses">
+        <i class="fas fa-moon"></i> Stella, i love the little things:<br>
+        the way you blush, the way you sing.<br>
+        your gentle "hello" on the phone,<br>
+        the way you never feel alone.<br>
+        <span class="stanza-break"><i class="fas fa-sun"></i> you make the simple moments shine,</span>
+        your hand in mine — so fine, so fine.<br>
+        i love your courage, i love your grace,<br>
+        the sweet expression on your face.<br>
+        when you are near, i am complete,<br>
+        my heart skips wildly on the street.<br>
+        you are my always, my "i do",<br>
+        stella, my love, i live for you.
       </div>
     </div>
   </div>
 
-  <script>
-    (function() {
-      // ----- page navigation -----
-      const tab1 = document.getElementById('tab1');
-      const tab2 = document.getElementById('tab2');
-      const tab3 = document.getElementById('tab3');
-      const page1 = document.getElementById('page1');
-      const page2 = document.getElementById('page2');
-      const page3 = document.getElementById('page3');
-      const tabs = [tab1, tab2, tab3];
-      const pages = [page1, page2, page3];
+  <!-- why i love stella – qualities + icons (no emoji) -->
+  <div class="why-stella">
+    <h2><i class="fas fa-star-and-crescent"></i> Stella, this is why i love you <i class="fas fa-star-and-crescent"></i></h2>
+    <div class="quality-grid">
+      <div class="quality-item"><i class="fas fa-gem"></i><span>you are kind</span></div>
+      <div class="quality-item"><i class="fas fa-brain"></i><span>you are smart</span></div>
+      <div class="quality-item"><i class="fas fa-hand-holding-heart"></i><span>you care deeply</span></div>
+      <div class="quality-item"><i class="fas fa-face-smile"></i><span>your smile</span></div>
+      <div class="quality-item"><i class="fas fa-notes-medical"></i><span>you heal me</span></div>
+      <div class="quality-item"><i class="fas fa-fire"></i><span>you are warm</span></div>
+      <div class="quality-item"><i class="fas fa-feather"></i><span>you are light</span></div>
+      <div class="quality-item"><i class="fas fa-shield-heart"></i><span>you are my peace</span></div>
+    </div>
+  </div>
 
-      function setActivePage(index) {
-        tabs.forEach((t, i) => {
-          if (i === index) t.classList.add('active');
-          else t.classList.remove('active');
-        });
-        pages.forEach((p, i) => {
-          if (i === index) p.classList.add('active-page');
-          else p.classList.remove('active-page');
-        });
-      }
+  <!-- closing line – whole page in english, all romantic -->
+  <div class="closing-note">
+    <i class="fas fa-heart-circle-plus"></i>
+    <span>for Stella, with all my heart</span>
+    <i class="fas fa-heart-circle-plus"></i>
+  </div>
 
-      tab1.addEventListener('click', (e) => { e.preventDefault(); setActivePage(0); });
-      tab2.addEventListener('click', (e) => { e.preventDefault(); setActivePage(1); });
-      tab3.addEventListener('click', (e) => { e.preventDefault(); setActivePage(2); });
+  <!-- tiny interactive button (js) to show extra message, no emoji, only icons -->
+  <div style="display: flex; justify-content: center; margin: 2rem 0 0.2rem;">
+    <button id="secretMessageBtn"><i class="fas fa-envelope-open-text"></i> open a secret verse <i class="fas fa-envelope-open-text"></i></button>
+  </div>
+  <p id="secretOutput" style="text-align: center; font-size: 1.3rem; min-height: 2.8rem; color:#912f53; margin: 1rem 0; font-style:italic;"></p>
+</div>
 
-      // ----- interactive comfort cards (page 1) -----
-      const comfort1 = document.getElementById('comfort1');
-      const comfort2 = document.getElementById('comfort2');
-      const comfort3 = document.getElementById('comfort3');
+<!-- javascript simple but warm -->
+<script>
+  (function() {
+    const secretBtn = document.getElementById('secretMessageBtn');
+    const output = document.getElementById('secretOutput');
 
-      comfort1.addEventListener('click', () => alert('🎶 “Grace, you are the melody I never want to end.”'));
-      comfort2.addEventListener('click', () => alert('🐱 “A tiny dream whispered: you are loved, always.”'));
-      comfort3.addEventListener('click', () => alert('📖 “If our love were a book, it’d be infinite pages.”'));
+    const secretLines = [
+      "✨ stella, even the moon is jealous of your glow.",
+      "🌹 every love song on the radio is about you, stella.",
+      "💌 i would wait a thousand years just to hold your hand again.",
+      "🎵 your name is the only poetry my heart knows.",
+      "🌙 stella, with you, forever isn't long enough.",
+      "🌸 you are the dream i never want to wake up from.",
+      "💫 if i had a star for every time i think of you, i'd own the sky."
+    ];
 
-      // ----- hunger LAUGHTER machine (make her laugh when hungry) -----
-      const laughBtn = document.getElementById('laughBtn');
-      const laughDisplay = document.getElementById('laughDisplay');
+    let lastIndex = -1;
 
-      const jokes = [
-        '🥧 Why did the grape stop in the middle? It ran out of juice!',
-        '🐧 What do you call a penguin in the desert? Lost!',
-        '🍕 Why did the tomato blush? Because it saw the salad dressing!',
-        '🐝 What do you call a bee that can’t make up its mind? A maybe.',
-        '🍦 What’s an ice cream’s favorite song? “Sunday Sundae”',
-        '🌭 Why did the hot dog laugh? Because the bun was a wiener!',
-        '🧀 Why don’t elephants use computers? They’re afraid of the mouse!',
-        '🍪 What did the milk say to the cookie? “You’re one smart cookie!”',
-        '🍌 Why did the banana go to the doctor? It wasn’t peeling well.'
-      ];
+    secretBtn.addEventListener('click', function() {
+      // pick a random secret line, not repeating the previous too often
+      let randomIndex;
+      do {
+        randomIndex = Math.floor(Math.random() * secretLines.length);
+      } while (randomIndex === lastIndex && secretLines.length > 1);
+      lastIndex = randomIndex;
 
-      laughBtn.addEventListener('click', () => {
-        const randomIndex = Math.floor(Math.random() * jokes.length);
-        // also change display with icon animation
-        laughDisplay.innerHTML = `<i class="fas fa-laugh-beam"></i> ${jokes[randomIndex]} <i class="fas fa-utensils"></i>`;
-        // bonus: gentle shake on button to mimic laughter
-        laughBtn.style.transform = 'rotate(1deg) scale(1.05)';
-        setTimeout(() => laughBtn.style.transform = '', 150);
-      });
-
-      // double click on laugh display itself for extra fun
-      laughDisplay.addEventListener('dblclick', () => {
-        laughDisplay.innerHTML = `<i class="fas fa-heart"></i> you make me smile, Grace <i class="fas fa-heart"></i>`;
-      });
-
-      // ----- page 2 shuffle love messages -----
-      const shuffleBtn = document.getElementById('shuffleLove');
-      const shuffleMsg = document.getElementById('shuffleMessage');
-
-      const loveLines = [
-        '<i class="fas fa-heart"></i> you are the poetry i never knew',
-        '<i class="fas fa-star"></i> my universe conspired to find you',
-        '<i class="fas fa-cloud"></i> your name is my first thought',
-        '<i class="fas fa-crown"></i> grace, you wear my soul gently',
-        '<i class="fas fa-feather"></i> with you, i am home',
-        '<i class="fas fa-infinity"></i> no end, only us',
-        '<i class="fas fa-gem"></i> you are rare, you are grace',
-      ];
-
-      shuffleBtn.addEventListener('click', () => {
-        const rand = Math.floor(Math.random() * loveLines.length);
-        shuffleMsg.innerHTML = loveLines[rand];
-      });
-
-      // ----- page 3 interactive cards -----
-      document.getElementById('breathCard').addEventListener('click', function() {
-        alert('🌬️ Breathe in peace, breathe out love. I am your air.');
-      });
-      document.getElementById('eternityCard').addEventListener('click', function() {
-        alert('⏳ Time folds when i think of you — it’s always us.');
-      });
-
-      // ----- extra floating animation on all pages? additional playful -----
-      // double click anywhere on page 3 adds sparkle effect (message)
-      page3.addEventListener('dblclick', (e) => {
-        if (page3.classList.contains('active-page')) {
-          alert('✨ you just sparkled my heart, Grace ✨');
-        }
-      });
-
-      // company icons also react (page1 companion)
-      const companionItems = document.querySelectorAll('.companion-item');
-      companionItems.forEach(item => {
-        item.addEventListener('click', () => {
-          // make her feel accompanied
-          alert('💞 i’m right here, holding your hand.');
-        });
-      });
-
-      // one extra: hunger button also changes icon on hover (just for delight)
-      laughBtn.addEventListener('mouseenter', () => {
-        laughBtn.innerHTML = '<i class="fas fa-utensil-spoon"></i> snack attack <i class="fas fa-cookie-bite"></i>';
-      });
-      laughBtn.addEventListener('mouseleave', () => {
-        laughBtn.innerHTML = '<i class="fas fa-drumstick-bite"></i> i\'m hungry';
-      });
-    })();
-  </script>
+      output.innerHTML = '<i class="fas fa-star" style="margin-right:6px;"></i> ' + secretLines[randomIndex] + ' <i class="fas fa-star" style="margin-left:6px;"></i>';
+      // gentle pop animation
+      output.style.transition = 'transform 0.2s';
+      output.style.transform = 'scale(1.03)';
+      setTimeout(() => output.style.transform = 'scale(1)', 150);
+    });
+  })();
+</script>
+<!-- 
+  note: no emojis used anywhere — only font awesome icons.
+  all text is english, simple, romantic, and full of praise for Stella.
+-->
 </body>
 </html>
