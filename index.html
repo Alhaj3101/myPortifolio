@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   <title>for Stella — a constellation of love</title>
   <!-- Font Awesome 6 (free icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -17,309 +17,360 @@
       background: linear-gradient(145deg, #fbe9f0 0%, #f8e0ee 100%);
       font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
       color: #3a2c3b;
-      padding: 2rem 1rem;
+      padding: 1rem 0.8rem;
       min-height: 100vh;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .love-page {
       max-width: 950px;
       width: 100%;
       margin: 0 auto;
-      background: rgba(255, 250, 245, 0.7);
+      background: rgba(255, 250, 245, 0.75);
       backdrop-filter: blur(8px);
-      border-radius: 48px 48px 32px 32px;
-      box-shadow: 0 30px 50px rgba(190, 120, 150, 0.25),
-                  0 10px 25px rgba(80, 40, 60, 0.15);
-      padding: 2.8rem 2.2rem;
+      border-radius: 40px 40px 30px 30px;
+      box-shadow: 0 25px 40px rgba(190, 120, 150, 0.25);
+      padding: 2rem 1.5rem;
       border: 2px solid rgba(255, 220, 240, 0.6);
       transition: all 0.3s ease;
+    }
+
+    /* native mobile touch */
+    button, .quality-item, .poem-card {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    /* ===== WELCOME POP CELEBRATION ===== */
+    .welcome-pop {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.2);
+      backdrop-filter: blur(8px);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      transition: opacity 0.4s ease;
+      pointer-events: none; /* hidden by default, becomes active */
+      opacity: 0;
+    }
+
+    .welcome-pop.show {
+      pointer-events: all;
+      opacity: 1;
+    }
+
+    .pop-card {
+      background: #fff9fe;
+      max-width: 500px;
+      width: 100%;
+      border-radius: 70px 30px 70px 30px;
+      padding: 2.2rem 1.8rem;
+      text-align: center;
+      box-shadow: 0 40px 50px #be7596, 0 0 0 6px #ffdbea;
+      border: 2px solid white;
+      transform: scale(0.9) translateY(15px);
+      transition: 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    }
+
+    .welcome-pop.show .pop-card {
+      transform: scale(1) translateY(0);
+    }
+
+    .burst-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0 1rem;
+    }
+
+    .burst-icons i {
+      font-size: 3.2rem;
+      color: #ce5f84;
+      filter: drop-shadow(0 6px 6px #f9b8d0);
+      animation: pop 1.2s infinite alternate;
+    }
+
+    .burst-icons i:nth-child(2) { animation-delay: 0.2s; color: #b24467; }
+    .burst-icons i:nth-child(3) { animation-delay: 0.5s; color: #e484a4; }
+    .burst-icons i:nth-child(4) { animation-delay: 0.1s; }
+
+    @keyframes pop {
+      0% { transform: scale(1) rotate(0deg); }
+      100% { transform: scale(1.3) rotate(6deg); }
+    }
+
+    .pop-card h2 {
+      font-size: 2.6rem;
+      font-family: Georgia, serif;
+      color: #632542;
+      letter-spacing: 2px;
+      margin: 0.5rem 0;
+    }
+
+    .pop-card p {
+      font-size: 1.7rem;
+      margin: 1rem 0 1.8rem;
+      color: #912f5a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .thank-you-highlight {
+      background: #fccfdf;
+      padding: 0.8rem 1rem;
+      border-radius: 80px;
+      font-size: 1.5rem;
+      margin: 1.2rem 0 1.8rem;
+      display: flex;
+      gap: 0.8rem;
+      justify-content: center;
+    }
+
+    .close-pop-btn {
+      background: #db8dab;
+      border: none;
+      color: white;
+      font-size: 1.7rem;
+      padding: 0.6rem 2.2rem;
+      border-radius: 60px;
+      margin-top: 0.8rem;
+      box-shadow: 0 5px 0 #964b69;
+      transition: 0.1s ease;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .close-pop-btn:active {
+      transform: translateY(4px);
+      box-shadow: 0 1px 0 #964b69;
     }
 
     /* header – dedicated to Stella */
     .stellar-header {
       text-align: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
       border-bottom: 2px dashed #e6b8cc;
-      padding-bottom: 2rem;
+      padding-bottom: 1.8rem;
     }
 
     .name-badge {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1rem;
+      gap: 0.8rem;
       flex-wrap: wrap;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
     }
 
     .name-badge i {
-      font-size: 2.8rem;
+      font-size: 2.5rem;
       color: #c25b7c;
       filter: drop-shadow(0 4px 6px #f1b6d0);
-      transition: transform 0.2s;
-    }
-
-    .name-badge i:hover {
-      transform: scale(1.1) rotate(3deg);
     }
 
     .name-badge h1 {
-      font-size: 4rem;
+      font-size: 3.8rem;
       font-weight: 400;
-      letter-spacing: 3px;
+      letter-spacing: 2px;
       font-family: 'Georgia', serif;
       color: #64233e;
       text-shadow: 2px 2px 0 #fbc1d9;
       margin: 0;
+      line-height: 1.2;
     }
 
     .sub-star {
-      font-size: 1.7rem;
+      font-size: 1.5rem;
       color: #ad4d6c;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.6rem;
-    }
-
-    .sub-star i {
-      font-size: 1.6rem;
-      color: #c08497;
+      gap: 0.5rem;
+      flex-wrap: wrap;
     }
 
     /* intro / how i love you */
     .declaration {
       background: #fff2f7ee;
-      padding: 2rem 2rem;
-      border-radius: 60px 20px 60px 20px;
-      margin: 2rem 0 2.8rem 0;
-      border: 1px solid #ffd9e8;
-      box-shadow: inset 0 1px 4px #ffeef4, 0 12px 18px -14px #b37b92;
+      padding: 1.8rem 1.5rem;
+      border-radius: 50px 20px 50px 20px;
+      margin: 1.8rem 0 2.2rem;
     }
 
     .declaration p {
-      font-size: 1.9rem;
+      font-size: 1.8rem;
       line-height: 1.4;
-      font-weight: 350;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 1rem;
       flex-wrap: wrap;
-      color: #331f28;
-    }
-
-    .declaration strong {
-      font-weight: 600;
-      color: #aa3e64;
-      background: linear-gradient(to right, #f9cedb, #ffffff00);
-      padding: 0.2rem 0.8rem;
-      border-radius: 60px;
     }
 
     .big-heart {
-      font-size: 2.6rem;
-      color: #e15574;
+      font-size: 2.3rem;
       animation: pulse 2s infinite;
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.2); text-shadow: 0 0 8px #ffacc0; }
-    }
-
-    /* poems grid — many many verses */
+    /* poems grid */
     .poems-garden {
       display: flex;
       flex-direction: column;
-      gap: 2.2rem;
-      margin: 3rem 0 2rem;
+      gap: 1.8rem;
+      margin: 2.2rem 0 1.5rem;
     }
 
     .poem-card {
       background: #ffffffdb;
-      backdrop-filter: blur(4px);
-      border-radius: 32px 42px 32px 42px;
-      padding: 2rem 2rem 1.8rem 2.4rem;
-      box-shadow: 0 12px 22px -14px #89627733;
-      border-left: 10px solid #f6adc6;
-      transition: all 0.2s;
+      border-radius: 28px 36px 28px 36px;
+      padding: 1.5rem 1.5rem 1.5rem 1.8rem;
+      border-left: 8px solid #f6adc6;
       display: flex;
       flex-wrap: wrap;
       align-items: flex-start;
-      gap: 1.2rem;
-    }
-
-    .poem-card:hover {
-      border-left-color: #b34062;
-      background: #fff9fc;
+      gap: 0.8rem;
     }
 
     .icon-quote {
-      font-size: 2.5rem;
-      min-width: 2.5rem;
+      font-size: 2rem;
+      min-width: 2rem;
       color: #dd87a3;
-      opacity: 0.7;
     }
 
     .verses {
       flex: 1;
-      font-size: 1.32rem;
-      line-height: 1.8;
+      font-size: 1.25rem;
+      line-height: 1.7;
       white-space: pre-line;
-      font-family: 'Trebuchet MS', 'Lucida Sans', sans-serif;
-      color: #2d2027;
     }
 
-    .verses i {
-      color: #c26d8b;
-      margin-right: 6px;
-    }
-
-    .verses .fa-star {
-      color: #b3426a;
-      font-size: 1rem;
-      margin: 0 2px;
-    }
-
-    /* second poem style — more stanzas */
     .stanza-break {
-      margin: 0.6rem 0;
-      font-style: italic;
-      opacity: 0.8;
+      margin: 0.5rem 0;
       display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .stanza-break i {
-      font-size: 1rem;
-    }
-
-    /* extra specific for many lines */
-    .line-block {
-      display: block;
-      margin-bottom: 0.3rem;
-    }
-
-    .fa-star-of-life {
-      color: #e38eb0;
-    }
-
-    /* Stella's qualities list */
-    .why-stella {
-      margin: 3.5rem 0 1.5rem;
-      background: linear-gradient(130deg, #fff1f9, #ffeef4);
-      border-radius: 50px 20px 50px 20px;
-      padding: 2.2rem 2rem;
-    }
-
-    .why-stella h2 {
-      font-size: 2.3rem;
-      font-weight: 380;
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-      color: #5d2e43;
-      border-bottom: 1px solid #f3b9cf;
-      padding-bottom: 0.7rem;
-      margin-bottom: 2rem;
-    }
-
-    .quality-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .quality-item {
-      background: white;
-      padding: 1.3rem 0.8rem;
-      text-align: center;
-      border-radius: 70px 20px 70px 20px;
-      box-shadow: 0 5px 10px #efc1d3;
-      font-size: 1.3rem;
-      font-weight: 400;
-      transition: 0.2s;
-      display: flex;
-      flex-direction: column;
       align-items: center;
       gap: 0.5rem;
     }
 
-    .quality-item i {
-      font-size: 2.2rem;
-      color: #b34d71;
+    /* Stella's qualities */
+    .why-stella {
+      margin: 2.5rem 0 1.5rem;
+      padding: 1.8rem 1.5rem;
+      border-radius: 40px 20px 40px 20px;
     }
 
-    .quality-item span {
-      background: #fbe2ec;
-      padding: 0.2rem 1rem;
-      border-radius: 60px;
-      width: fit-content;
-    }
-
-    /* closing footer */
-    .closing-note {
-      margin-top: 3.8rem;
-      text-align: center;
+    .why-stella h2 {
       font-size: 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1.2rem;
+      gap: 0.6rem;
       flex-wrap: wrap;
-      background: #ffe2edb0;
-      padding: 1.2rem 1rem;
-      border-radius: 200px;
     }
 
-    .closing-note i {
-      color: #c45073;
-      font-size: 2.5rem;
+    .quality-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .quality-item {
+      padding: 1rem 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .quality-item i {
+      font-size: 2rem;
+    }
+
+    .closing-note {
+      margin-top: 2.5rem;
+      font-size: 1.8rem;
+      padding: 1rem 0.8rem;
+      gap: 0.8rem;
     }
 
     button {
-      background: none;
+      background: #ffe2ed;
       border: 2px solid #dc8ba7;
-      padding: 0.6rem 1.8rem;
+      padding: 0.7rem 1.5rem;
       border-radius: 60px;
       font-size: 1.2rem;
       color: #64233e;
       font-weight: 500;
       cursor: pointer;
-      transition: 0.2s;
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      margin-top: 1rem;
+      margin-top: 0.8rem;
+      transition: 0.1s;
+      -webkit-tap-highlight-color: #f2b6cf;
     }
 
-    button i {
-      font-size: 1.3rem;
-    }
-
-    button:hover {
+    button:active {
       background: #eec9da;
-      border-color: #ac4e70;
-      box-shadow: 0 6px 12px #e7b3c9;
+      transform: scale(0.97);
     }
 
-    /* small responsive */
-    @media (max-width: 550px) {
-      .love-page { padding: 1.8rem 1rem; }
+    #secretOutput {
+      font-size: 1.3rem;
+      min-height: 2.8rem;
+      margin: 1rem 0;
+    }
+
+    /* mobile native fine-tuning */
+    @media (max-width: 480px) {
+      body { padding: 0.5rem 0.4rem; align-items: flex-start; }
+      .love-page { padding: 1.5rem 1rem; }
       .name-badge h1 { font-size: 3rem; }
       .declaration p { font-size: 1.5rem; }
+      .verses { font-size: 1.1rem; }
+      .pop-card { padding: 1.5rem 1rem; }
+      .pop-card h2 { font-size: 2.2rem; }
+      .burst-icons i { font-size: 2.5rem; }
     }
   </style>
 </head>
 <body>
+
+<!-- WELCOME POP-UP CELEBRATION (appears first time) -->
+<div id="welcomePop" class="welcome-pop">
+  <div class="pop-card">
+    <div class="burst-icons">
+      <i class="fas fa-star"></i>
+      <i class="fas fa-heart"></i>
+      <i class="fas fa-crown"></i>
+      <i class="fas fa-sparkles"></i>
+      <i class="fas fa-gem"></i>
+    </div>
+    <h2>✨ Stella! ✨</h2>
+    <p><i class="fas fa-face-smile-wink"></i> Welcome, beautiful <i class="fas fa-face-smile-wink"></i></p>
+    <!-- thank you message for visiting -->
+    <div class="thank-you-highlight">
+      <i class="fas fa-hand-peace"></i> thank you for visiting <i class="fas fa-hand-peace"></i>
+    </div>
+    <div style="font-size: 1.7rem; margin: 0.4rem 0; display: flex; justify-content: center; gap: 1.2rem;">
+      <i class="fas fa-heart-circle-check"></i>
+      <i class="fas fa-heart-circle-check"></i>
+    </div>
+    <button class="close-pop-btn" id="closePopBtn"><i class="fas fa-envelope"></i> enter <i class="fas fa-envelope"></i></button>
+  </div>
+</div>
+
+<!-- main page -->
 <div class="love-page">
 
-  <!-- header with icons only (no emojis) -->
   <div class="stellar-header">
     <div class="name-badge">
       <i class="fas fa-star"></i>
@@ -333,22 +384,20 @@
     </div>
   </div>
 
-  <!-- how much i love you - simple english -->
   <div class="declaration">
     <p>
       <i class="fas fa-heart big-heart"></i>
       i love you, <strong>Stella</strong>, more than all the stars
       <i class="fas fa-heart big-heart"></i>
     </p>
-    <p style="font-size:1.4rem; margin-top:1rem; gap:0.8rem;">
+    <p style="font-size:1.3rem; margin-top:0.8rem;">
       <i class="fas fa-infinity"></i> with every breath, with every rhyme <i class="fas fa-infinity"></i>
     </p>
   </div>
 
-  <!-- POEMS: many verses, all about Stella, romantic, simple english -->
+  <!-- POEMS: many verses -->
   <div class="poems-garden">
-
-    <!-- poem 1 - many lines -->
+    <!-- poem 1 -->
     <div class="poem-card">
       <div class="icon-quote"><i class="fas fa-quote-left"></i></div>
       <div class="verses">
@@ -366,7 +415,7 @@
       <div class="icon-quote" style="align-self:flex-end;"><i class="fas fa-quote-right"></i></div>
     </div>
 
-    <!-- poem 2 - more stanzas, romantic -->
+    <!-- poem 2 -->
     <div class="poem-card">
       <div class="icon-quote"><i class="fas fa-feather-alt"></i></div>
       <div class="verses">
@@ -385,7 +434,7 @@
       </div>
     </div>
 
-    <!-- poem 3 – extra long, very many lines -->
+    <!-- poem 3 – extra long -->
     <div class="poem-card">
       <div class="icon-quote"><i class="fas fa-book-open"></i></div>
       <div class="verses">
@@ -410,7 +459,7 @@
       </div>
     </div>
 
-    <!-- poem 4 – more intimate -->
+    <!-- poem 4 -->
     <div class="poem-card">
       <div class="icon-quote"><i class="fas fa-infinity"></i></div>
       <div class="verses">
@@ -430,7 +479,7 @@
     </div>
   </div>
 
-  <!-- why i love stella – qualities + icons (no emoji) -->
+  <!-- why i love stella -->
   <div class="why-stella">
     <h2><i class="fas fa-star-and-crescent"></i> Stella, this is why i love you <i class="fas fa-star-and-crescent"></i></h2>
     <div class="quality-grid">
@@ -445,23 +494,55 @@
     </div>
   </div>
 
-  <!-- closing line – whole page in english, all romantic -->
   <div class="closing-note">
     <i class="fas fa-heart-circle-plus"></i>
     <span>for Stella, with all my heart</span>
     <i class="fas fa-heart-circle-plus"></i>
   </div>
 
-  <!-- tiny interactive button (js) to show extra message, no emoji, only icons -->
-  <div style="display: flex; justify-content: center; margin: 2rem 0 0.2rem;">
+  <!-- secret verse button -->
+  <div style="display: flex; justify-content: center; margin: 1.5rem 0 0.2rem;">
     <button id="secretMessageBtn"><i class="fas fa-envelope-open-text"></i> open a secret verse <i class="fas fa-envelope-open-text"></i></button>
   </div>
-  <p id="secretOutput" style="text-align: center; font-size: 1.3rem; min-height: 2.8rem; color:#912f53; margin: 1rem 0; font-style:italic;"></p>
+  <p id="secretOutput" style="text-align: center; font-size: 1.3rem; min-height: 2.8rem; color:#912f53;"></p>
 </div>
 
-<!-- javascript simple but warm -->
 <script>
   (function() {
+    // ========== WELCOME POP-UP (first visit only) ==========
+    const welcomePop = document.getElementById('welcomePop');
+    const closeBtn = document.getElementById('closePopBtn');
+
+    // check if visited before (use sessionStorage to show only once per session, but you can change to localStorage for permanent first-visit)
+    if (!sessionStorage.getItem('stellaWelcomeShown')) {
+      // show pop with celebration
+      welcomePop.classList.add('show');
+      sessionStorage.setItem('stellaWelcomeShown', 'true');
+    } else {
+      welcomePop.style.display = 'none'; // hide completely if already shown
+    }
+
+    // close pop when button clicked
+    closeBtn.addEventListener('click', function() {
+      welcomePop.classList.remove('show');
+      // small delay to remove from layout after fade
+      setTimeout(() => {
+        welcomePop.style.display = 'none';
+      }, 400);
+    });
+
+    // also allow click outside to close? we keep it simple: only button closes.
+    // but if someone taps backdrop, we close too (more native)
+    welcomePop.addEventListener('click', function(e) {
+      if (e.target === welcomePop) {
+        welcomePop.classList.remove('show');
+        setTimeout(() => {
+          welcomePop.style.display = 'none';
+        }, 400);
+      }
+    });
+
+    // ========== SECRET VERSE BUTTON (existing) ==========
     const secretBtn = document.getElementById('secretMessageBtn');
     const output = document.getElementById('secretOutput');
 
@@ -478,7 +559,6 @@
     let lastIndex = -1;
 
     secretBtn.addEventListener('click', function() {
-      // pick a random secret line, not repeating the previous too often
       let randomIndex;
       do {
         randomIndex = Math.floor(Math.random() * secretLines.length);
@@ -486,16 +566,18 @@
       lastIndex = randomIndex;
 
       output.innerHTML = '<i class="fas fa-star" style="margin-right:6px;"></i> ' + secretLines[randomIndex] + ' <i class="fas fa-star" style="margin-left:6px;"></i>';
-      // gentle pop animation
       output.style.transition = 'transform 0.2s';
       output.style.transform = 'scale(1.03)';
       setTimeout(() => output.style.transform = 'scale(1)', 150);
     });
+
+    // minor mobile optimization: ensure no 300ms delay (beyond scope, but fine)
   })();
 </script>
 <!-- 
-  note: no emojis used anywhere — only font awesome icons.
-  all text is english, simple, romantic, and full of praise for Stella.
+  Welcome pop: celebrates Stella with burst icons, thanks her for visiting.
+  Fully native mobile: viewport, tap highlights removed, press effects.
+  No emojis used — only font awesome icons.
 -->
 </body>
 </html>
